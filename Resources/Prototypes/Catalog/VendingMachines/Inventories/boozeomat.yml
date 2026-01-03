@@ -56,6 +56,9 @@
     DrinkAngobittersBottleFull: 3 # DeltaV - Angostura Bitters Bottle
     DrinkDisposableCup: 5 # #imp
     EthylredoxrazineAutoInjector: 2 # Frontier so bartenders can jab someone dying of alcohol poisoning
+    DrinkDisposableCup: 5 #imp item
+    DrinkColoCup: 5 #imp item
+    BoxFoodColoring: 2 #imp item
   contrabandInventory:
     ChemistryBottleEthanol: 3
     DrinkBottleOfNothingFull: 1
