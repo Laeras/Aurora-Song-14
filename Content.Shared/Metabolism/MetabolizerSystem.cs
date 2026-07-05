@@ -31,6 +31,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
     [Dependency] private SharedEntityConditionsSystem _entityConditions = default!;
     [Dependency] private SharedEntityEffectsSystem _entityEffects = default!;
     [Dependency] private SharedSolutionContainerSystem _solutionContainerSystem = default!;
+    [Dependency] private IRobustRandom _random = default!; // Aurora's Song
 
     [Dependency] private EntityQuery<OrganComponent> _organQuery = default!;
     [Dependency] private EntityQuery<SolutionManagerComponent> _solutionQuery = default!;
@@ -147,7 +148,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
         // randomize the reagent list so we don't have any weird quirks
         // like alphabetical order or insertion order mattering for processing
         var rand = SharedRandomExtensions.PredictedRandom(_gameTiming, GetNetEntity(ent), GetNetEntity(solutionOwner));
-        rand.Shuffle(list);
+        _random.Shuffle(list); // Aurora's Song
 
         var isDead = _mobStateSystem.IsDead(solutionOwner.Value);
 
@@ -217,7 +218,7 @@ public sealed partial class MetabolizerSystem : EntitySystem
                 if (scale < effect.MinScale)
                     continue;
 
-                if (rand.NextFloat() >= effect.Probability)
+                if (_random.NextFloat() >= effect.Probability) // Aurora's Song
                     continue;
 
                 // See if conditions apply
