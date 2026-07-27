@@ -781,10 +781,9 @@
           - MachineBoard
           - ComputerBoard
           - Circuitboard
-          - MachinePart # Aurora's Song - this tag corresponds to the StockParts, capacitors, matter bins, etc.
+          - MachinePart # Aurora's Song - this tag corresponds to the StockParts, capacitors, matter bins, and power cells
           tags:
           - Igniter # Aurora's Song - used for hyper convection lathes
-          - PowerCell # Aurora's Song - used for a few random machine recipes, importantly, substations
         blacklist:
           components:
           - SiliconLawProvider
