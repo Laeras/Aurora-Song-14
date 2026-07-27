@@ -166,6 +166,7 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _metaSystem.SetEntityName(entity, aiRemoteComp.CurrentName);
         // Aurora's Song End
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
+
         RewriteLaws(ai, entity);
     }
 
