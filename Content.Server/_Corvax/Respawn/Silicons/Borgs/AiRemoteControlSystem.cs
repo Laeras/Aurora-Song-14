@@ -96,7 +96,16 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
     private void OnReturnMindIntoAi(Entity<AiRemoteControllerComponent> entity, ref ReturnMindIntoAiEvent args)
     {
         ReturnMindIntoAi(entity);
-        _metaSystem.SetEntityName(entity, "Empty Remote Chassis"); // AS
+        if (TryComp<NameModifierComponent>(entity, out var borgNameModifierComponent))
+        {
+            if (borgNameModifierComponent.BaseName == entity.Comp.CurrentName) // Aurora's Song - Checks if name has changed during time controlling chassis
+            {
+                _metaSystem.SetEntityName(entity,
+                    entity.Comp
+                        .PreviousName); // AS "Empty Remote Chassis > entity.Comp.PreviousName, sets the name to what it was before the AI took control
+            }
+        }
+
     }
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
@@ -139,14 +148,38 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         _mind.ControlMob(ai, entity);
         aiRemoteComp.AiHolder = ai;
         aiRemoteComp.LinkedMind = mindId;
-        if (TryComp<NameModifierComponent>(ai, out var nameModifierComponent)) // AS: Make it rename things to represent its being remoted.
+        if (TryComp<NameModifierComponent>(entity, out var borgNameModifierComponent))
         {
-            _metaSystem.SetEntityName(entity, nameModifierComponent.BaseName + " Remote Chassis");
+            aiRemoteComp.PreviousName = borgNameModifierComponent.BaseName; // Aurora's Song - Stores the name of the borg before renaming
+            if (TryComp<NameModifierComponent>(ai,
+                    out var nameModifierComponent)) // AS: Make it rename things to represent its being remoted.
+            {
+                _metaSystem.SetEntityName(entity, nameModifierComponent.BaseName + " // " + aiRemoteComp.PreviousName);
+            }
+
+            else
+            {
+                _metaSystem.SetEntityName(entity, Comp<MetaDataComponent>(ai).EntityName + " // " + aiRemoteComp.PreviousName);
+            }
+            // Aurora's Song - If the borg has a NameModifierComponent, it gets saved so it can be compared against again when the AI leaves
+            aiRemoteComp.CurrentName = borgNameModifierComponent.BaseName;
         }
         else
         {
-            _metaSystem.SetEntityName(entity, Comp<MetaDataComponent>(ai).EntityName + " Remote Chassis");
+            if (TryComp<NameModifierComponent>(ai,
+                    out var nameModifierComponent)) // AS: Make it rename things to represent its being remoted.
+            {
+                _metaSystem.SetEntityName(entity, nameModifierComponent.BaseName + " // " + "Remote Chassis");
+            }
+
+            else
+            {
+                _metaSystem.SetEntityName(entity, Comp<MetaDataComponent>(ai).EntityName + " // " + "Remote Chassis");
+            }
+            // Aurora's Song - I didn't bother with setting CurrentName here since if it failed to get a NameModifierComponent, it won't be checking CurrentName anyways
         }
+
+
 
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
 
@@ -228,7 +261,7 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnMindRemoved(EntityUid uid, AiRemoteControllerComponent component, MindRemovedMessage args) // AS: Logic to handle ghosting while connected to a borg
     {
-        if (component.AiHolder == null || component.LinkedMind == null) // If these are null, then the mind removal was likely from the AI returning to their core and we don't need to do anything
+        if (component.AiHolder == null || component.LinkedMind == null) // If these are null, then the mind removal was likely from the AI returning to their core, and we don't need to do anything
             return;
 
         if (!TryComp<StationAiHeldComponent>(component.AiHolder.Value, out var stationAiHeldComp)) // Somehow, what we were connected to wasn't an AI. Don't want to mess with it
