@@ -99,26 +99,19 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         // Aurora's Song Start
         string name;// storage for name, only needed because we can't be sure if the entity has an NMC or not
         if (TryComp<NameModifierComponent>(entity, out var borgNameModifierComponent))
-        {
             name = borgNameModifierComponent.BaseName;
-        }
         else
-        {
             name = MetaData(entity).EntityName; //If the entity doesn't have an NMC, EntityName should be the full name of the entity
-        }
+
         if (name == entity.Comp.CurrentName) // Checks if name has changed during time controlling chassis
-        {
             _metaSystem.SetEntityName(entity, entity.Comp.PreviousName); // Sets the name to what it was before being controlled
-        }
         // Aurora's Song End
     }
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
         string aiName; // Aurora's Song - Name of AI, used to prevent if-nesting
-
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
             return;
-
         if (_mind.TryGetMind(entity, out var bodyMindID, out var bodyMind)) // Aurora's Song - Prevent taking over an entity with a mind
             return;
         if (!TryComp<StationAiHeldComponent>(ai, out var stationAiHeldComp))
@@ -160,28 +153,19 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         // Aurora's Song Start - This section does a few things!
         // First it gets the borg's name and saves it to aiRemoteComp
         if (TryComp<NameModifierComponent>(entity, out var borgNameModifierComponent)) // Ensures NameModifierComponent exists on borg prior to trying to access it
-        {
             aiRemoteComp.PreviousName = borgNameModifierComponent.BaseName; // We can use PreviousName since it's already set up to hold exactly this
-        }
         else
-        {
             aiRemoteComp.PreviousName = MetaData(entity).EntityName;
-        }
         // Then, it gets and saves the AI's name
         if (TryComp<NameModifierComponent>(ai, out var nameModifierComponent))
-        {
             aiName = nameModifierComponent.BaseName;
-        }
         else
-        {
             aiName = MetaData(ai).EntityName;
-        }
         //Then it sets the borg's name to a combination of the AI's name and the borg's name, to allow identification.
         aiRemoteComp.CurrentName = aiName + " // " + aiRemoteComp.PreviousName;
         _metaSystem.SetEntityName(entity, aiRemoteComp.CurrentName);
         // Aurora's Song End
         _stationAiSystem.SwitchRemoteEntityMode(stationAiCore, false);
-
         RewriteLaws(ai, entity);
     }
 
