@@ -150,9 +150,9 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         aiRemoteComp.LinkedMind = mindId;
         // Aurora's Song Start - This section does a few things!
         // First it gets the borg's name and saves it to aiRemoteComp
-        aiRemoteComp.PreviousName = TryComp<NameModifierComponent>(entity, out var borgNMC) ? aiRemoteComp.PreviousName = borgNMC.BaseName : aiRemoteComp.PreviousName = MetaData(entity).EntityName;
+        aiRemoteComp.PreviousName = TryComp<NameModifierComponent>(entity, out var borgNMC) ? borgNMC.BaseName : MetaData(entity).EntityName;
         // Then, it gets and saves the AI's name
-        string aiName = TryComp<NameModifierComponent>(ai, out var nameModifierComponent) ? aiName = nameModifierComponent.BaseName : aiName = MetaData(ai).EntityName;
+        string aiName = TryComp<NameModifierComponent>(ai, out var nameModifierComponent) ? nameModifierComponent.BaseName : MetaData(ai).EntityName;
         //Then it sets the borg's name to a combination of the AI's name and the borg's name, to allow identification.
         aiRemoteComp.CurrentName = aiName + " // " + aiRemoteComp.PreviousName;
         _metaSystem.SetEntityName(entity, aiRemoteComp.CurrentName);
