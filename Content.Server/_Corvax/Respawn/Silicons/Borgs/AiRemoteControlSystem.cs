@@ -105,7 +105,6 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
     }
     public void AiTakeControl(EntityUid ai, EntityUid entity)
     {
-        string aiName; // Aurora's Song - Name of AI, used to prevent if-nesting
         if (!_mind.TryGetMind(ai, out var mindId, out var mind))
             return;
 
@@ -153,7 +152,7 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
         // First it gets the borg's name and saves it to aiRemoteComp
         aiRemoteComp.PreviousName = TryComp<NameModifierComponent>(entity, out var borgNMC) ? aiRemoteComp.PreviousName = borgNMC.BaseName : aiRemoteComp.PreviousName = MetaData(entity).EntityName;
         // Then, it gets and saves the AI's name
-        aiName = TryComp<NameModifierComponent>(ai, out var nameModifierComponent) ? aiName = nameModifierComponent.BaseName : aiName = MetaData(ai).EntityName;
+        string aiName = TryComp<NameModifierComponent>(ai, out var nameModifierComponent) ? aiName = nameModifierComponent.BaseName : aiName = MetaData(ai).EntityName;
         //Then it sets the borg's name to a combination of the AI's name and the borg's name, to allow identification.
         aiRemoteComp.CurrentName = aiName + " // " + aiRemoteComp.PreviousName;
         _metaSystem.SetEntityName(entity, aiRemoteComp.CurrentName);
