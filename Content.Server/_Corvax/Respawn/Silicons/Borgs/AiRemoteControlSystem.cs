@@ -185,6 +185,7 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
             };
             if (_stationAiSystem.TryGetCore(uid, out var stationAiCore) && stationAiCore.Comp?.RemoteEntity != null
                     && (Transform(stationAiCore).WorldPosition - Transform(queryUid).WorldPosition).Length() < 4096 // AS: World position over relative
+                    && !_mind.TryGetMind(queryUid, out _, out _) // Aurora's Song - Hide any bodies currently in use
                 )
             {
                 remoteDevices.Add(data);
