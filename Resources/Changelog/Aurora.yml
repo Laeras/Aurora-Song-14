@@ -2358,3 +2358,35 @@ Entries:
   id: 9652
   time: '2026-07-26T23:01:42.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1293
+- author: Laeras
+  changes:
+    - type: Fix
+      message: >-
+        Let cyborg construction modules pick up parts for construction
+        (igniters, power cells, capacitors, matter bins, manipulators)
+  id: 9653
+  time: '2026-07-27T06:56:08.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1305
+- author: ZigTag
+  changes:
+    - type: Tweak
+      message: Bluespace beaker is now size normal (2x2)
+  id: 9654
+  time: '2026-07-27T07:13:59.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1304
+- author: salamanderskies
+  changes:
+    - type: Add
+      message: >-
+        Adds Decapoids, imperial crab-like aliens first spotted in the Imp
+        sector.
+  id: 9655
+  time: '2026-07-29T02:34:50.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1288
+- author: Laeras
+  changes:
+    - type: Add
+      message: Added naming remote chassis for shipminds and AI!
+  id: 9656
+  time: '2026-07-29T02:46:56.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1303
