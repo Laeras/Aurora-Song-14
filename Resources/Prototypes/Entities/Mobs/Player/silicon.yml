@@ -511,7 +511,6 @@
         hard: false
         layer:
         - GhostImpassable
-  - type: NoFTL
   - type: Tag
     tags:
     - GhostOnlyWarp
