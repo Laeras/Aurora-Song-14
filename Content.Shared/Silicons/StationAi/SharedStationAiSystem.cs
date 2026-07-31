@@ -463,11 +463,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
         if (proto != null)
         {
             var eye = SpawnAtPosition(proto, coords.Value); // AS
-            if (ent.Comp.Remote)
-            {
-                var eyeComp = EnsureComp<StationAiEyeComponent>(eye); // AS
-                eyeComp.CoreEntity = ent; // AS
-            }
+            var eyeComp = EnsureComp<StationAiEyeComponent>(eye); // AS > removed if statement
+            eyeComp.CoreEntity = ent; // AS
             ent.Comp.RemoteEntity = eye; // AS
             Dirty(ent);
         }
