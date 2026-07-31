@@ -672,8 +672,8 @@ public abstract partial class SharedStationAiSystem : EntitySystem
     // Aurora's Song Start
     private void OnComponentShutdown(EntityUid uid, StationAiEyeComponent component, ComponentShutdown args) // AS
     {
-        // Removed a line here setting a variable to EntityUid.Invalid, replace comparison on if below
-        if (component.CoreEntity == null || component.CoreEntity == EntityUid.Invalid) // If its been nulled or zero, it either doesn't exist or been set that way purposefully.
+        // Aurora's Song - Removed a line here setting a variable to EntityUid.Invalid, replace comparison on if below
+        if (component.CoreEntity == null || component.CoreEntity == EntityUid.Invalid) // Aurora's Song - If its been nulled or zero, it either doesn't exist or been set that way purposefully.
             return;
 
         if (!TryComp<StationAiCoreComponent>(component.CoreEntity.Value, out var coreComp))
