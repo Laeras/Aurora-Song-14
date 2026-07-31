@@ -154,6 +154,7 @@
   - type: MobState
     allowedStates:
     - Alive
+    - Dead
   - type: Appearance
   - type: GuideHelp
     guides:
