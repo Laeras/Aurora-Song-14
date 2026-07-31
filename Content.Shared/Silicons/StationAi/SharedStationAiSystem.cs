@@ -268,7 +268,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
             args.Handled = true;
         }
-    }  //TODO: FIX THIS???
+    }
 
     private void OnHolderInteract(Entity<StationAiHolderComponent> ent, ref AfterInteractEvent args)
     {

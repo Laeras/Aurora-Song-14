@@ -238,8 +238,8 @@ public sealed partial class AiRemoteControlSystem : SharedAiRemoteControlSystem
 
     private void OnMindRemoved(EntityUid uid, AiRemoteControllerComponent component, MindRemovedMessage args) // AS: Logic to handle ghosting while connected to a borg
     {
-            if (component.AiHolder == null || component.LinkedMind == null) // If these are null, then the mind removal was likely from the AI returning to their core and we don't need to do anything
-                return;
+        if (component.AiHolder == null || component.LinkedMind == null) // If these are null, then the mind removal was likely from the AI returning to their core and we don't need to do anything
+            return;
 
         if (!TryComp<StationAiHeldComponent>(component.AiHolder.Value, out var stationAiHeldComp)) // Somehow, what we were connected to wasn't an AI. Don't want to mess with it
             return;
