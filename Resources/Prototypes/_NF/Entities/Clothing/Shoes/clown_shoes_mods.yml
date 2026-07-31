@@ -3,7 +3,7 @@
   - BaseC3ContrabandNoValue
   - ClothingShoesClown
   id: ClothingShoesClownModWhoopie
-  name: clown shoes // Aurora's Song - fixed naming issue
+  name: clown shoes # Aurora's Song - fixed naming issue
   suffix: "Whoopie"
   description: "The modified standard-issue clowning shoes. Damn they're so soft!"
   components:
@@ -23,7 +23,7 @@
   - BaseC3ContrabandNoValue
   - ClothingShoesClown
   id: ClothingShoesClownModKetchup
-  name: clown shoes // Aurora's Song - fixed naming issue
+  name: clown shoes # Aurora's Song - fixed naming issue
   suffix: "Ketchup"
   description: "The modified standard-issue clowning shoes. Damn they're soggy!"
   components:
@@ -54,7 +54,7 @@
   - BaseC3ContrabandNoValue
   - ClothingShoesClown
   id: ClothingShoesClownModMustarchup
-  name: clown shoes // Aurora's Song - fixed naming issue
+  name: clown shoes # Aurora's Song - fixed naming issue
   suffix: "Mustarchup"
   description: "The modified standard-issue clowning shoes. Damn they're very soggy!"
   components:
@@ -87,7 +87,7 @@
   - BaseC3ContrabandNoValue
   - ClothingShoesClown
   id: ClothingShoesClownModUltimate
-  name: clown shoes // Aurora's Song - fixed naming issue
+  name: clown shoes # Aurora's Song - fixed naming issue
   suffix: "Ultimate"
   description: "The modified standard-issue clowning shoes. Damn they're soft and soggy!"
   components:
