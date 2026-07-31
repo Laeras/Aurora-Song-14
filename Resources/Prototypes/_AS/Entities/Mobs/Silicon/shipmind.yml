@@ -89,6 +89,7 @@
   parent: BaseItem
   categories: [ HideSpawnMenu, DoNotMap ]
   components:
+  - type: Alerts
   - type: BlockMovement
     blockInteraction: false
   - type: SiliconLawBound
