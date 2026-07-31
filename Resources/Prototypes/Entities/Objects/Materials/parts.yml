@@ -1,6 +1,6 @@
 - type: entity
   abstract: true
-  parent: MaterialBaseRecycleable # Aurora's Song - Lets make these suckers recycleable!
+  parent: MaterialBaseRecycleable # Aurora's Song - Make rods recycleable
   id: PartBase
   components:
   - type: Sprite
