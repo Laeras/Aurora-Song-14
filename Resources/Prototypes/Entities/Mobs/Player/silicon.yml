@@ -510,7 +510,7 @@
         density: 80
         hard: false
         layer:
-        - GhostImpassable
+        - GhostImpassable # Aurora's Song - Removed NoFTL tag so the AI eye can move with ships
   - type: Tag
     tags:
     - GhostOnlyWarp
