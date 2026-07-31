@@ -73,7 +73,7 @@
       color: "#9f9f00"
   - type: Access
     groups:
-    - Command
+    - AllAccess
   - type: DoorRemote
 
 - type: entity
