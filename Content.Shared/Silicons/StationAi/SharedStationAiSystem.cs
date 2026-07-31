@@ -383,7 +383,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private void OnCorePower(Entity<StationAiCoreComponent> ent, ref PowerChangedEvent args)
     {
-        if (!args.Powered)
+        if (!args.Powered && MetaData(ent).EntityPrototype?.ID != "PlayerStationAiShipmind") //Aurora's Song - Prevent death from powerloss if shipmind (TODO: change things to ensure shipmind doesn't run out of power before played)
         {
             KillHeldAi(ent);
         }
