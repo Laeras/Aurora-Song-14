@@ -218,6 +218,7 @@
       hasMindState: remote_eyes
       noMindState: remote_eyes_empty
     - type: Touched # Aurora's Song - Prevents shipmind cyborg from being despawned
+      touched: True
     - type: ShowHealthBars
     - type: InteractionPopup
       interactSuccessString: petting-success-syndicate-cyborg
