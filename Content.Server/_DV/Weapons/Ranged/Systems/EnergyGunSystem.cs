@@ -9,6 +9,7 @@ using Content.Shared._DV.Weapons.Ranged;
 using Content.Shared.Weapons.Ranged.Components;
 using Robust.Shared.Prototypes;
 using System.Linq;
+using Content.Shared.CombatMode.Pacification;
 using Content.Shared.Interaction.Events; // Frontier
 using Content.Shared.Weapons.Ranged.Systems; // Frontier
 
@@ -20,6 +21,7 @@ public sealed partial class EnergyGunSystem : EntitySystem
     [Dependency] private PopupSystem _popupSystem = default!;
     [Dependency] private SharedItemSystem _item = default!;
     [Dependency] private SharedAppearanceSystem _appearance = default!;
+    private const string disabler = "NFBulletDisabler"; // Aurora's Song
 
     public override void Initialize()
     {
@@ -119,7 +121,12 @@ public sealed partial class EnergyGunSystem : EntitySystem
     {
         if (fireMode?.Prototype == null)
             return;
-
+        // Aurora's Song - Start - Self explanatory, I think? The component seems to show up in VV on my test environment even when it's removed.  Not sure if this is terribly unperformant and should be switched to using a variable and additional logic
+        if (fireMode.Prototype == disabler)
+            AddComp<PacifismAllowedGunComponent>(uid);
+        else
+            RemComp<PacifismAllowedGunComponent>(uid);
+        // Aurora's Song - End
         component.CurrentFireMode = fireMode;
 
         if (TryComp(uid, out BatteryAmmoProviderComponent? projectileBatteryAmmoProvider))
