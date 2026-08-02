@@ -94,6 +94,7 @@
       fireCost: 60
       name: disable
       state: disabler
+      pacifismAllowedMode: true
     - proto: NFBulletLaserLow
       fireCost: 60
       name: kill

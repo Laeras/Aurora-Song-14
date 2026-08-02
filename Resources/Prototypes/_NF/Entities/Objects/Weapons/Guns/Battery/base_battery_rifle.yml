@@ -83,6 +83,7 @@
       fireCost: 80
     - proto: NFBulletDisabler
       fireCost: 80
+      pacifismAllowedMode: true
 
 - type: entity
   id: NFBaseWeaponEnergyRifleHitScan

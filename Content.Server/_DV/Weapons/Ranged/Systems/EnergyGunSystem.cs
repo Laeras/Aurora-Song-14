@@ -121,12 +121,7 @@ public sealed partial class EnergyGunSystem : EntitySystem
     {
         if (fireMode?.Prototype == null)
             return;
-        // Aurora's Song - Start - Self explanatory, I think? The component seems to show up in VV on my test environment even when it's removed.  Not sure if this is terribly unperformant and should be switched to using a variable and additional logic
-        if (fireMode.Prototype == disabler)
-            AddComp<PacifismAllowedGunComponent>(uid);
-        else
-            RemComp<PacifismAllowedGunComponent>(uid);
-        // Aurora's Song - End
+
         component.CurrentFireMode = fireMode;
 
         if (TryComp(uid, out BatteryAmmoProviderComponent? projectileBatteryAmmoProvider))

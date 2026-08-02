@@ -50,6 +50,7 @@
       fireCost: 50
       name: disabling
       state: disabler
+      pacifismAllowedMode: true
     - proto: BulletEnergyGunMagnum
       fireCost: 100
       name: lethal
