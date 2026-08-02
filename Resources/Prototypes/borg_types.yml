@@ -184,12 +184,14 @@
   - type: ShowHealthIcons
     damageContainers:
     - Biological
-  - type: Access # Aurora's Song - Start: Lets Medical borgs use the PB medbay, and medbays on ships with access-restricted medbays
+  # Aurora's Song - Start:
+  - type: Access # Lets Medical borgs use the PB medbay, and medbays on ships with access-restricted medbays
     groups:
     - GeneralAccess
     - Medical
     tags:
-    - Borg # Aurora's Song - End
+    - Borg
+  # Aurora's Song - End
 
   # Visual
   inventoryTemplateId: borgDutch

@@ -82,7 +82,7 @@ public abstract partial class SharedStationAiSystem : EntitySystem
 
     private static readonly EntProtoId DefaultAi = "StationAiBrain";
     private readonly ProtoId<ChatNotificationPrototype> _downloadChatNotificationPrototype = "IntellicardDownload";
-    private static readonly EntProtoId DefaultShipmind = "BorgChassisShipmind"; // Aurora's Song - Defines the Proto to check against when checking if a shipmind is ripping out their own brain
+    private static readonly EntProtoId DefaultShipmind = "BorgChassisShipmind"; // Aurora's Song - Defines the Proto to check against if you want an intellicard to be dropped on downloading an AI
 
     public override void Initialize()
     {
