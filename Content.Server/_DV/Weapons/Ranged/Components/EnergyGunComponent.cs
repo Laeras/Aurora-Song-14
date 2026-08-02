@@ -54,5 +54,4 @@ public sealed partial class EnergyWeaponFireMode
     /// </summary>
     [DataField("state")]
     public string State = string.Empty;
-
 }
