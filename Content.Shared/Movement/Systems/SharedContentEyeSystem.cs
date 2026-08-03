@@ -150,7 +150,6 @@ public abstract partial class SharedContentEyeSystem : EntitySystem
         Dirty(uid, component);
     }
     // Aurora's Song - End
-
     public void UpdateEyeOffset(Entity<EyeComponent> eye)
     {
         var evAttempt = new GetEyeOffsetAttemptEvent();

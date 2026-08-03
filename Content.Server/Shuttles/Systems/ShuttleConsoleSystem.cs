@@ -429,9 +429,8 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             return;
         }
-
-        _eyeSystem.SetZoom(entity, component.InitialZoom, ignoreLimits: true);
         // Aurora's Song - Start
+        _eyeSystem.SetZoom(entity, component.InitialZoom, ignoreLimits: true);
         if (TryComp<ContentEyeComponent>(entity, out var eye))
         {
             _eyeSystem.SetHeldZoom(entity, eye.MaxZoom);
