@@ -74,9 +74,9 @@
     examineCaliber: gun-examine-energybolt-high
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider # Aurora's Song - ProjectileBatteryAmmoProvider>BatteryAmmoProvider
-    proto: NFBulletLaserHeavy
-    fireCost: 80
+  #- type: BatteryAmmoProvider # Aurora's Song - ProjectileBatteryAmmoProvider>BatteryAmmoProvider
+  #  proto: NFBulletLaserHeavy # Aurora's Song - No Longer Needed
+  #  fireCost: 80
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: NFBulletLaserHeavy

@@ -41,9 +41,9 @@
   - type: Battery
     maxCharge: 1005
     startingCharge: 1005
-  - type: BatteryAmmoProvider
-    proto: NFBulletDisabler
-    fireCost: 50
+  #- type: BatteryAmmoProvider
+  #  proto: NFBulletDisabler # Aurora's Song - Uses list below
+  #  fireCost: 50
   - type: BatteryWeaponFireModes # Aurora's Song - Firemode Refactor
     fireModes:
     - proto: NFBulletDisabler

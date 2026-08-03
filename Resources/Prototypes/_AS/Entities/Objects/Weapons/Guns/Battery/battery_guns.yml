@@ -60,9 +60,9 @@
   - type: Battery
     maxCharge: 1005
     startingCharge: 1005
-  - type: BatteryAmmoProvider
-    proto: NFBulletDisabler
-    fireCost: 50
+  #- type: BatteryAmmoProvider # Aurora's Song - Defined below, unneeded
+  #  proto: NFBulletDisabler
+  #  fireCost: 50
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
@@ -524,9 +524,9 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: ASBulletLaserMagnum
-    fireCost: 140
+  #- type: BatteryAmmoProvider
+  #  proto: ASBulletLaserMagnum # Aurora's Song - Uses list below
+  #  fireCost: 140
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ASBulletLaserMagnum
@@ -565,9 +565,9 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  - type: BatteryAmmoProvider
-    proto: ASBulletLaserSpread # Aurora's Song | moved to AS variant
-    fireCost: 80
+  #- type: BatteryAmmoProvider
+  #  proto: ASBulletLaserSpread # Aurora's Song - Uses list below, now
+  #  fireCost: 80
   - type: BatteryWeaponFireModes
     fireModes: # Aurora's Song | Moved to AS variants
     - proto: ASBulletLaserSpread
