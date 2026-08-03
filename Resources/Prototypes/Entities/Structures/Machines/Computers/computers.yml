@@ -122,6 +122,7 @@
   abstract: true
   components:
   - type: ShuttleConsole
+    zoom: 2, 2 # Aurora's Song - *should* give everything that's a child of this 2x zoom?
   - type: ActivatableUI
     key: enum.ShuttleConsoleUiKey.Key
   - type: UserInterface

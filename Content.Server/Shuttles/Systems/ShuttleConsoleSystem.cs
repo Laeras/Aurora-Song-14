@@ -24,6 +24,7 @@ using Content.Shared.UserInterface;
 using Robust.Shared.Prototypes;
 using Content.Shared.Access.Systems; // Frontier
 using Content.Shared.Construction.Components; // Frontier
+using Content.Shared.Movement.Components; // Aurora's Song
 
 namespace Content.Server.Shuttles.Systems;
 
@@ -430,7 +431,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         }
 
         _eyeSystem.SetZoom(entity, component.Zoom, ignoreLimits: true);
-
+        // Aurora's Song - Start
+        if (TryComp<ContentEyeComponent>(entity, out var eye))
+        {
+            _eyeSystem.SetHeldZoom(entity, eye.HeldZoom);
+            _eyeSystem.SetMaxZoom(entity, component.Zoom, eye); // We can safely put both of these in here because if there's no component, both of these will fail
+        }
+        //Aurora's Song - End
         component.SubscribedPilots.Add(entity);
 
         _alertsSystem.ShowAlert(entity, pilotComponent.PilotingAlert);
@@ -450,7 +457,13 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
 
         pilotComponent.Console = null;
         pilotComponent.Position = null;
-        _eyeSystem.ResetZoom(pilotUid);
+        // Aurora's Song - Start
+        if (TryComp<ContentEyeComponent>(pilotUid, out var eye))
+        {
+            _eyeSystem.SetMaxZoom(pilotUid, eye.HeldZoom, eye);
+            _eyeSystem.ResetZoom(pilotUid);
+        }
+        // Aurora's Song - End
 
         if (!helm.SubscribedPilots.Remove(pilotUid))
             return;
