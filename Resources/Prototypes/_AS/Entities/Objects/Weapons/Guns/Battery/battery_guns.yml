@@ -88,8 +88,8 @@
     visuals:
       enum.BatteryWeaponFireModeVisuals.State: # Firemode Refactor
         Firemode:
-          NFBulletDisabler: { state: mode-disabler } # Firemode Refactor, disabler > NFBulletDisabler
           BulletEnergyGunMagnum: { state: mode-lethal } # Firemode Refactor, lethal > BulletEnergyGunMagnum
+          NFBulletDisabler: { state: mode-disabler } # Firemode Refactor, disabler > NFBulletDisabler
 
 
 # region - battery rifle frames | Aurora Song
@@ -525,8 +525,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
-  #  proto: ASBulletLaserMagnum # Aurora's Song - Uses list below
-  #  fireCost: 140
+    proto: ASBulletLaserMagnum # Aurora's Song - Uses list below
+    fireCost: 140
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: ASBulletLaserMagnum
@@ -566,8 +566,8 @@
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
   - type: BatteryAmmoProvider
-  #  proto: ASBulletLaserSpread # Aurora's Song - Uses list below, now
-  #  fireCost: 80
+    proto: ASBulletLaserSpread # Aurora's Song - Uses list below, now
+    fireCost: 80
   - type: BatteryWeaponFireModes
     fireModes: # Aurora's Song | Moved to AS variants
     - proto: ASBulletLaserSpread

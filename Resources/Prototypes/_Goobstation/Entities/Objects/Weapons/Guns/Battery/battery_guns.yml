@@ -64,8 +64,8 @@
     visuals:
       enum.BatteryWeaponFireModeVisuals.State: # Aurora's Song - Firemode Refactor
         Firemode:
-          NFBulletDisabler: { state: mode-disabler } # Aurora's Song - Firemode Refactor
           BulletEnergyGunMagnum: { state: mode-lethal } # Aurora's Song - Firemode Refactor
+          NFBulletDisabler: { state: mode-disabler } # Aurora's Song - Firemode Refactor
   - type: Tag
     tags:
     - Sidearm

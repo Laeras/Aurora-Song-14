@@ -92,8 +92,8 @@
     visuals:
       enum.BatteryWeaponFireModeVisuals.State: # Aurora's Song - Firemode Refactor
         Firemode:
-          NFBulletDisabler: { state: mode-disabler } # Aurora's Song - Firemode Refactor
           NFBulletLaserLow: { state: mode-lethal } # Aurora's Song - Firemode Refactor
+          NFBulletDisabler: { state: mode-disabler } # Aurora's Song - Firemode Refactor
 
 - type: entity
   id: NFBaseWeaponEnergySubMachineGunDisabler
