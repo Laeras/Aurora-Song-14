@@ -83,7 +83,7 @@
       fireCost: 60
       #name: disable # Aurora's Song - Firemode Refactor
       #state: disabler # Aurora's Song - Firemode Refactor
-      pacifismAllowedMode: true
+      pacifismAllowedMode: true # Aurora's Song
     - proto: NFBulletLaserLow
       fireCost: 60
       #name: harm # Aurora's Song - Firemode Refactor
