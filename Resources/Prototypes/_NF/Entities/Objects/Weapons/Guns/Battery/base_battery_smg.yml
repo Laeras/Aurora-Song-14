@@ -74,20 +74,20 @@
     examineCaliber: gun-examine-energybolt-low-disabler-pistol
     soundGunshot:
       path: /Audio/_DV/Weapons/Guns/Gunshots/laser.ogg
-  #- type: BatteryAmmoProvider # Aurora's Song - ProjectileBatteryAmmoProvider>BatteryAmmoProvider
-  #  proto: NFBulletLaserLow # Aurora's Song - Uses list below
-  #  fireCost: 60
+  - type: BatteryAmmoProvider # Aurora's Song - ProjectileBatteryAmmoProvider>BatteryAmmoProvider
+    proto: NFBulletLaserLow
+    fireCost: 60
   - type: BatteryWeaponFireModes # Aurora's Song - Firemode Refactor
     fireModes:
+    - proto: NFBulletLaserLow
+      fireCost: 60
+      #name: harm # Aurora's Song - Firemode Refactor
+      #state: lethal # Aurora's Song - Firemode Refactor
     - proto: NFBulletDisabler
       fireCost: 60
       #name: disable # Aurora's Song - Firemode Refactor
       #state: disabler # Aurora's Song - Firemode Refactor
       pacifismAllowedMode: true # Aurora's Song
-    - proto: NFBulletLaserLow
-      fireCost: 60
-      #name: harm # Aurora's Song - Firemode Refactor
-      #state: lethal # Aurora's Song - Firemode Refactor
   - type: GenericVisualizer
     visuals:
       enum.BatteryWeaponFireModeVisuals.State: # Aurora's Song - Firemode Refactor

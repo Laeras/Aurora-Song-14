@@ -883,9 +883,9 @@
     fireRate: 2
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  #- type: BatteryAmmoProvider # Aurora's Song - Moved into firemodes
-  #  proto: ASBulletLaserSpread # Aurora's Song | moved to AS variant
-  #  fireCost: 80
+  - type: BatteryAmmoProvider
+    proto: ASBulletLaserSpreadNarrow # Aurora's Song | moved to AS variant
+    fireCost: 80
   - type: BatteryWeaponFireModes
     fireModes: # Aurora's Song | Moved to AS variants
     - proto: ASBulletLaserSpreadNarrow
@@ -934,9 +934,9 @@
   - type: Gun
     soundGunshot:
       path: /Audio/Weapons/Guns/Gunshots/laser_cannon.ogg
-  #- type: BatteryAmmoProvider # Aurora's Song - This is defined below, and unneeded
-  #  proto: BulletLaserMagnum
-  #  fireCost: 150
+  - type: BatteryAmmoProvider
+    proto: BulletLaserMagnum
+    fireCost: 150
   - type: BatteryWeaponFireModes
     fireModes:
     - proto: BulletLaserMagnum
