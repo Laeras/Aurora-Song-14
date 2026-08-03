@@ -28,7 +28,7 @@ namespace Content.Server.DeviceLinking.Systems
         {
 
             _signalSystem.EnsureSinkPorts(uid, component.OpenPort, component.ClosePort, component.TogglePort);
-            _signalSystem.EnsureSourcePorts(uid, component.OutOpen);
+            _signalSystem.EnsureSourcePorts(uid, component.OutOpen, component.OutOpened, component.OutClosed, component.OutOpening, component.OutClosing, component.OutBolted); // Aurora's Song
         }
 
         private void OnSignalReceived(EntityUid uid, DoorSignalControlComponent component, ref SignalReceivedEvent args)
@@ -98,6 +98,12 @@ namespace Content.Server.DeviceLinking.Systems
                 // say the door is open whenever it would be letting air pass
                 _signalSystem.SendSignal(uid, door.OutOpen, true);
             }
+            // Aurora's Song - Start
+            _signalSystem.SendSignal(uid, door.OutOpened, args.State == DoorState.Open);
+            _signalSystem.SendSignal(uid, door.OutClosed, args.State == DoorState.Closed);
+            _signalSystem.SendSignal(uid, door.OutOpening, args.State == DoorState.Opening);
+            _signalSystem.SendSignal(uid, door.OutClosing, args.State == DoorState.Closing);
+            // Aurora's Song - End
         }
     }
 }
