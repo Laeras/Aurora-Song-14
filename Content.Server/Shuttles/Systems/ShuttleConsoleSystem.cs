@@ -434,6 +434,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         if (TryComp<ContentEyeComponent>(entity, out var eye))
         {
             _eyeSystem.SetHeldZoom(entity, eye.MaxZoom);
+            _eyeSystem.SetHeldZoomLock(entity,true); // Prevents other code from modifying the HeldZoom
             _eyeSystem.SetMaxZoom(entity, component.Zoom, eye); // We can safely put both of these in here because if there's no component, both of these will fail
         }
         //Aurora's Song - End
@@ -461,6 +462,7 @@ public sealed partial class ShuttleConsoleSystem : SharedShuttleConsoleSystem
         {
             _eyeSystem.SetMaxZoom(pilotUid, eye.HeldZoom, eye);
             _eyeSystem.ResetZoom(pilotUid);
+            _eyeSystem.SetHeldZoomLock(pilotUid,false);
         }
         // Aurora's Song - End
 
