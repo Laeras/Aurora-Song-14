@@ -893,7 +893,7 @@
     - proto: ASBulletDisablerSmgSpread
       fireCost: 48
     - proto: ASBulletLaserSpread # Aurora's Song | moved to AS variant
-      fireCost: 80
+      fireCost: 80 # Aurora's Song - Moved down here to the fireMode list
   - type: Item
     size: Large
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
