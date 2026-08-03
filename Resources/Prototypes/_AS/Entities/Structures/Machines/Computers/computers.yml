@@ -97,7 +97,5 @@
   #I'm sure the SLE has a tag, I don't know what it is
   - type: RadarConsole
     maxRange: 768
-  - type: WorldLoader
-    radius: 1086 # I really hope this is enough? might need more, honestly, but the performance hits of increasing radius would be radius^2 I think?
   - type: Computer
     board: SLEShuttleConsoleCircuitboard
