@@ -31,8 +31,9 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedMindSystem _mindSystem = default!;
     [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedRingerSystem _ringerSystem = default!; // Aurora's Song
 
-    public override void Initialize()
+public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<CriticalImplantTrackerCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
@@ -159,4 +160,15 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
         var state = new CriticalImplantTrackerUiState(patients);
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
+    // Aurora's Song - Start
+    public void OnDeathrattle()
+    {
+        var query = EntityQueryEnumerator<CriticalImplantTrackerCartridgeComponent>();
+        while (query.MoveNext(out var queryUid, out var comp))
+        {
+            if (TryComp<CartridgeComponent>(queryUid, out var cartridge) && cartridge.LoaderUid is { } loader)
+                _ringerSystem.RingerPlayRingtone(loader);
+        }
+    }
+    // Aurora's Song - End
 }

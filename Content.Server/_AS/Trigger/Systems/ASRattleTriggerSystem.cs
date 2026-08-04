@@ -1,4 +1,5 @@
-﻿using Content.Server.Radio.EntitySystems;
+﻿using Content.Server._WF.CartridgeLoader.Cartridges; // Aurora's Song
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Implants; // Aurora's Song: Retriggers
 using Content.Shared._AS.Traits;
 using Content.Shared.Humanoid;
@@ -20,6 +21,7 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
     [Dependency] private RadioSystem _radioSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IGameTiming _timing = default!; // Aurora's Song: Death Times & Retriggering
+    [Dependency] private CriticalImplantTrackerCartridgeSystem _critCatridgeSystem = default!; // Aurora's Song - PDA ringing
 
     // Have old functionality of rattle available for NF and Coyote functionality
     protected override void OnTrigger(Entity<RattleOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
@@ -92,7 +94,7 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
             _prototypeManager.Index<RadioChannelPrototype>(ent.Comp.RadioChannel),
             target);
         // End Coyote
-
+        _critCatridgeSystem.OnDeathrattle(); // Aurora's Song - Ping PDAs
         ent.Comp.NextTrigger = _timing.CurTime + ent.Comp.RetriggerDelay; // Aurora's Song: Implant retriggering
         args.Handled = true;
     }
