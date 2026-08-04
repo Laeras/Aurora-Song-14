@@ -35,6 +35,21 @@ namespace Content.Server.DeviceLinking.Components
 
         [DataField("whenBolted", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
         public string OutBolted = "DoorStatusBolted";
+        // These 5 instead are for momentary invocations!
+        [DataField("onOpen", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        public string OutInvokeOpened = "DoorStatusOnOpened";
+
+        [DataField("onClosed", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        public string OutInvokeClosed = "DoorStatusOnClosed";
+
+        [DataField("onOpening", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        public string OutInvokeOpening = "DoorStatusOnOpening";
+
+        [DataField("onClosing", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        public string OutInvokeClosing = "DoorStatusOnClosing";
+
+        [DataField("onBolted", customTypeSerializer: typeof(PrototypeIdSerializer<SourcePortPrototype>))]
+        public string OutInvokeBolted = "DoorStatusOnBolted";
         // Aurora's Song - End
     }
 }

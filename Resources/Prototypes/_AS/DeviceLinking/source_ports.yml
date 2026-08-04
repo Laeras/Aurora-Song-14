@@ -22,3 +22,28 @@
   id: DoorStatusBolted
   name: signal-port-name-doorstatus-bolted
   description: signal-port-description-doorstatus-bolted
+
+- type: sourcePort
+  id: DoorStatusOnOpened
+  name: signal-port-name-doorstatus-invoke-open
+  description: signal-port-description-doorstatus-invoke-open
+
+- type: sourcePort
+  id: DoorStatusOnClosed
+  name: signal-port-name-doorstatus-invoke-closed
+  description: signal-port-description-doorstatus-invoke-closed
+
+- type: sourcePort
+  id: DoorStatusOnOpening
+  name: signal-port-name-doorstatus-invoke-opening
+  description: signal-port-description-doorstatus-invoke-opening
+
+- type: sourcePort
+  id: DoorStatusOnClosing
+  name: signal-port-name-doorstatus-invoke-closing
+  description: signal-port-description-doorstatus-invoke-closing
+
+- type: sourcePort
+  id: DoorStatusOnBolted
+  name: signal-port-name-doorstatus-invoke-bolted
+  description: signal-port-description-doorstatus-invoke-bolted

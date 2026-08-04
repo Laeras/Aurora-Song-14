@@ -22,13 +22,14 @@ namespace Content.Server.DeviceLinking.Systems
             SubscribeLocalEvent<DoorSignalControlComponent, ComponentInit>(OnInit);
             SubscribeLocalEvent<DoorSignalControlComponent, SignalReceivedEvent>(OnSignalReceived);
             SubscribeLocalEvent<DoorSignalControlComponent, DoorStateChangedEvent>(OnStateChanged);
+            SubscribeLocalEvent<DoorSignalControlComponent, DoorBoltsChangedEvent>(OnBoltsChanged); // Aurora's Song
         }
 
         private void OnInit(EntityUid uid, DoorSignalControlComponent component, ComponentInit args)
         {
 
             _signalSystem.EnsureSinkPorts(uid, component.OpenPort, component.ClosePort, component.TogglePort);
-            _signalSystem.EnsureSourcePorts(uid, component.OutOpen, component.OutOpened, component.OutClosed, component.OutOpening, component.OutClosing, component.OutBolted); // Aurora's Song
+            _signalSystem.EnsureSourcePorts(uid, component.OutOpen, component.OutOpened, component.OutClosed, component.OutOpening, component.OutClosing, component.OutBolted, component.OutInvokeBolted, component.OutInvokeClosed, component.OutInvokeClosing, component.OutInvokeOpened, component.OutInvokeOpening); // Aurora's Song
         }
 
         private void OnSignalReceived(EntityUid uid, DoorSignalControlComponent component, ref SignalReceivedEvent args)
@@ -99,11 +100,33 @@ namespace Content.Server.DeviceLinking.Systems
                 _signalSystem.SendSignal(uid, door.OutOpen, true);
             }
             // Aurora's Song - Start
-            _signalSystem.SendSignal(uid, door.OutOpened, args.State == DoorState.Open);
-            _signalSystem.SendSignal(uid, door.OutClosed, args.State == DoorState.Closed);
-            _signalSystem.SendSignal(uid, door.OutOpening, args.State == DoorState.Opening);
+            switch (args.State)
+            {
+                case DoorState.Open:
+                    _signalSystem.InvokePort(uid, door.OutInvokeOpened);
+                    break;
+                case DoorState.Closed:
+                    _signalSystem.InvokePort(uid, door.OutInvokeClosed);
+                    break;
+                case DoorState.Opening:
+                    _signalSystem.InvokePort(uid, door.OutInvokeOpening);
+                    break;
+                case DoorState.Closing:
+                    _signalSystem.InvokePort(uid, door.OutInvokeClosing);
+                    break;
+            }
+            // It gets worse, no worries friend
             _signalSystem.SendSignal(uid, door.OutClosing, args.State == DoorState.Closing);
-            // Aurora's Song - End
+            _signalSystem.SendSignal(uid, door.OutOpening, args.State == DoorState.Opening);
+            _signalSystem.SendSignal(uid, door.OutClosed, args.State == DoorState.Closed);
+            _signalSystem.SendSignal(uid, door.OutOpened, args.State == DoorState.Open);
         }
+
+        private void OnBoltsChanged(Entity<DoorSignalControlComponent> ent, ref DoorBoltsChangedEvent args)
+        {
+            _signalSystem.SendSignal(ent, ent.Comp.OutBolted, args.BoltsDown);
+            if(args.BoltsDown)
+                _signalSystem.InvokePort(ent, ent.Comp.OutInvokeBolted);
+        }// Aurora's Song - End
     }
 }
