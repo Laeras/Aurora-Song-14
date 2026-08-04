@@ -17,6 +17,7 @@
     MedicalTrackingImplanter: 4294967295 # Infinite
     LightImplanter: 4294967295 # Infinite
     MedTekCartridge: 4294967295 # Infinite
+    CriticalImplantTrackerCartridge: 4294967295 # Infinite also
     BoxFolderMedicalDoctor: 4294967295 # Infinite
     HandLabeler: 4294967295 # Infinite
   # Tools
@@ -24,7 +25,6 @@
     ProximitySensor: 4294967295 # Infinite
     LeftArmBorg: 4294967295 # Infinite
     BreachingCharge: 4294967295 # Infinite
-    CriticalImplantTrackerCartridge: 4294967295 # Infinite also
   # Armor
     ClothingOuterHardsuitMedicArmored: 4294967295 # Infinite - Private Security Hardsuit replaced with Medic Armored Hardsuit
   # Weapons
