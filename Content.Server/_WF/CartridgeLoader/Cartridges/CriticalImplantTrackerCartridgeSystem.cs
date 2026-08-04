@@ -33,7 +33,7 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
     [Dependency] private SharedContainerSystem _containerSystem = default!;
     [Dependency] private SharedRingerSystem _ringerSystem = default!; // Aurora's Song
 
-public override void Initialize()
+    public override void Initialize()
     {
         base.Initialize();
         SubscribeLocalEvent<CriticalImplantTrackerCartridgeComponent, CartridgeMessageEvent>(OnUiMessage);
