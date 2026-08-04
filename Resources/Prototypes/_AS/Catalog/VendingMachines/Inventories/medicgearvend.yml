@@ -24,6 +24,7 @@
     ProximitySensor: 4294967295 # Infinite
     LeftArmBorg: 4294967295 # Infinite
     BreachingCharge: 4294967295 # Infinite
+    CriticalImplantTrackerCartridge: 4294967295 # Infinite also
   # Armor
     ClothingOuterHardsuitMedicArmored: 4294967295 # Infinite - Private Security Hardsuit replaced with Medic Armored Hardsuit
   # Weapons
