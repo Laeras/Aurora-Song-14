@@ -576,6 +576,7 @@
       fireCost: 80
     - proto: ASBulletDisablerSmgSpread
       fireCost: 48
+      pacifismAllowedMode: true
   - type: Item
     size: Large
     sprite: Objects/Weapons/Guns/Battery/inhands_64x.rsi
