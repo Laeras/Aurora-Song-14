@@ -16,6 +16,8 @@ namespace Content.Client.PDA.Ringer
 
         public event Action? SetRingtoneButtonPressed;
         public event Action? TestRingtoneButtonPressed;
+        public event Action? RingerVolumeUpButtonPressed; // Aurora's Song - Start
+        public event Action? RingerVolumeDownButtonPressed; // Aurora's Song - End
 
         public RingtoneMenu()
         {
@@ -23,9 +25,9 @@ namespace Content.Client.PDA.Ringer
 
             SetRingerButton.OnPressed += _ => SetRingtoneButtonPressed?.Invoke();
             TestRingerButton.OnPressed += _ => TestRingtoneButtonPressed?.Invoke();
-
+            RingerVolumeUpButton.OnPressed += _ => RingerVolumeUpButtonPressed?.Invoke(); // Aurora's Song - Start
+            RingerVolumeDownButton.OnPressed += _ => RingerVolumeDownButtonPressed?.Invoke(); // Aurora's Song - End
             RingerNoteInputs = new[] { RingerNoteOneInput, RingerNoteTwoInput, RingerNoteThreeInput, RingerNoteFourInput, RingerNoteFiveInput, RingerNoteSixInput };
-
             for (var i = 0; i < RingerNoteInputs.Length; ++i)
             {
                 var input = RingerNoteInputs[i];
@@ -93,5 +95,10 @@ namespace Content.Client.PDA.Ringer
 
             return Enum.TryParse(input, true, out Note _);
         }
+        // Aurora's Song - Start
+        public void UpdateVolume(float volume)
+        {
+            VolumeLabel.Text = (volume + 9f).ToString(); // makes the volume 9 higher, such that -4dB (default) reads as a "5" on the 1-10 volume scale
+        } // Aurora's Song - End
     }
 }

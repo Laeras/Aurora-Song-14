@@ -1,8 +1,8 @@
 <controls:FancyWindow xmlns="https://spacestation14.io"
                       xmlns:controls="clr-namespace:Content.Client.UserInterface.Controls"
                       Title="{Loc 'comp-ringer-ui-menu-title'}"
-            MinSize="320 100"
-            SetSize="320 100">
+            MinSize="320 120"
+            SetSize="320 120">
         <BoxContainer Orientation="Vertical"
                     VerticalExpand="True"
                     HorizontalExpand="True"
@@ -70,6 +70,14 @@
                             VerticalAlignment="Center" />
                 </BoxContainer>
             </PanelContainer>
+            <PanelContainer> <!-- Aurora's Song - Start -->
+                <BoxContainer Orientation="Horizontal" VerticalExpand="True" HorizontalExpand="True" HorizontalAlignment="Center" MinSize="180 0">
+                    <Label Name = "VolumeNameLabel" HorizontalAlignment="Center" VerticalAlignment="Center" Text="{Loc 'comp-ringer-ui-menu-volume'}" />
+                    <Label Name = "VolumeLabel" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    <Button Name="RingerVolumeUpButton" Text="{Loc comp-ringer-ui-menu-volume-up-button}" />
+                    <Button Name="RingerVolumeDownButton" Text="{Loc comp-ringer-ui-menu-volume-down-button}" />
+                </BoxContainer>
+            </PanelContainer> <!-- Aurora's Song - End -->
             <PanelContainer>
                 <BoxContainer Orientation="Horizontal"
                             VerticalExpand="True"

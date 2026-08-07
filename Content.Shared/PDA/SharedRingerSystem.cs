@@ -39,6 +39,7 @@ public abstract partial class SharedRingerSystem : EntitySystem
         // RingerBoundUserInterface Subscriptions
         SubscribeLocalEvent<RingerComponent, RingerSetRingtoneMessage>(OnSetRingtone);
         SubscribeLocalEvent<RingerComponent, RingerPlayRingtoneMessage>(OnPlayRingtone);
+        SubscribeLocalEvent<RingerComponent, RingerSetVolumeMessage>(OnSetVolume); // Aurora's Song
     }
 
     /// <inheritdoc/>
@@ -191,6 +192,15 @@ public abstract partial class SharedRingerSystem : EntitySystem
     {
         StartRingtone(ent);
     }
+    // Aurora's Song - Start
+    private void OnSetVolume(Entity<RingerComponent> ent, ref RingerSetVolumeMessage args)
+    {
+        if (args.Handled)
+            return;
+        ent.Comp.Volume += args.RingerVolume;
+        args.Handled = true;
+    }
+    // Aurora's Song - End
 
     // Helper methods
 

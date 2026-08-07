@@ -15,3 +15,16 @@ public sealed class RingerSetRingtoneMessage : BoundUserInterfaceMessage
         Ringtone = ringTone;
     }
 }
+// Aurora's Song - Start
+[Serializable, NetSerializable]
+public sealed class RingerSetVolumeMessage : BoundUserInterfaceMessage
+{
+    public float RingerVolume { get; }
+    public bool Handled = false;
+
+    public RingerSetVolumeMessage(float volume)
+    {
+        RingerVolume = volume;
+    }
+}
+// Aurora's Song - End

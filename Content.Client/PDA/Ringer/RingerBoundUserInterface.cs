@@ -20,6 +20,8 @@ namespace Content.Client.PDA.Ringer
 
             _menu.TestRingtoneButtonPressed += OnTestRingtoneButtonPressed;
             _menu.SetRingtoneButtonPressed += OnSetRingtoneButtonPressed;
+            _menu.RingerVolumeUpButtonPressed += OnRingerVolumeUpButtonPressed; // Aurora's Song
+            _menu.RingerVolumeDownButtonPressed += OnRingerVolumeDownButtonPressed; // Aurora's Song
 
             Update();
         }
@@ -53,7 +55,7 @@ namespace Content.Client.PDA.Ringer
 
             if (!EntMan.TryGetComponent(Owner, out RingerComponent? ringer))
                 return;
-
+            _menu.UpdateVolume(ringer.Volume); // Aurora's Song - Show volume on menu open
             for (var i = 0; i < _menu.RingerNoteInputs.Length; i++)
             {
                 var note = ringer.Ringtone[i].ToString();
@@ -98,5 +100,21 @@ namespace Content.Client.PDA.Ringer
                         ringer.Disabled = false;
                 });
         }
+        // Aurora's Song - Start
+        private void OnRingerVolumeDownButtonPressed()
+        {
+            if (_menu is null || !EntMan.TryGetComponent(Owner, out RingerComponent? ringer) || ringer.Volume <= -9)
+                return;
+            SendPredictedMessage(new RingerSetVolumeMessage(-1f));
+            _menu.UpdateVolume(ringer.Volume);
+        }
+        private void OnRingerVolumeUpButtonPressed()
+        {
+            if (_menu is null || !EntMan.TryGetComponent(Owner, out RingerComponent? ringer) || ringer.Volume >= 1)
+                return;
+            SendPredictedMessage(new RingerSetVolumeMessage(1f));
+            _menu.UpdateVolume(ringer.Volume);
+        }
+        // Aurora's Song - End
     }
 }
