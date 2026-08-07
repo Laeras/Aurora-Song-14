@@ -15,7 +15,6 @@ using Content.Shared.EntityEffects.Effects.Body;
 using Content.Shared.EntityEffects.Effects.Solution;
 using Content.Shared.FixedPoint;
 using Content.Shared.Mobs.Systems;
-using Content.Shared.Random.Helpers;
 using Robust.Shared.Prototypes;
 using Robust.Shared.Random;
 using Robust.Shared.Timing;
@@ -147,7 +146,6 @@ public sealed partial class MetabolizerSystem : EntitySystem
 
         // randomize the reagent list so we don't have any weird quirks
         // like alphabetical order or insertion order mattering for processing
-        var rand = SharedRandomExtensions.PredictedRandom(_gameTiming, GetNetEntity(ent), GetNetEntity(solutionOwner));
         _random.Shuffle(list); // Aurora's Song
 
         var isDead = _mobStateSystem.IsDead(solutionOwner.Value);
