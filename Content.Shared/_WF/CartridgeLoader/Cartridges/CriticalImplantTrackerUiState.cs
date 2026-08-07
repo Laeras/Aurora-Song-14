@@ -7,10 +7,12 @@ namespace Content.Shared._WF.CartridgeLoader.Cartridges;
 public sealed class CriticalImplantTrackerUiState : BoundUserInterfaceState
 {
     public List<CriticalPatientData> Patients { get; }
+    public bool Muted { get; } // Aurora's Song
 
-    public CriticalImplantTrackerUiState(List<CriticalPatientData> patients)
+    public CriticalImplantTrackerUiState(List<CriticalPatientData> patients, bool muted)
     {
         Patients = patients;
+        Muted = muted; // Aurora's Song
     }
 }
 
@@ -39,3 +41,7 @@ public sealed class CriticalPatientData
 public sealed class CriticalImplantTrackerRefreshMessage : CartridgeMessageEvent
 {
 }
+[Serializable, NetSerializable] // Aurora's Song - Start
+public sealed class CriticalImplantTrackerMuteMessage : CartridgeMessageEvent
+{
+} // Aurora's Song - End

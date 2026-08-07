@@ -19,6 +19,10 @@ public sealed partial class CriticalImplantTrackerUi : UIFragment
     {
         _fragment = new CriticalImplantTrackerUiFragment();
 
+        _fragment.OnMutePressed += () => // Aurora's Song - Start
+        {
+            userInterface.SendMessage(new CartridgeUiMessage(new CriticalImplantTrackerMuteMessage()));
+        }; // Aurora's Song - End
         _fragment.OnRefreshPressed += () =>
         {
             userInterface.SendMessage(new CartridgeUiMessage(new CriticalImplantTrackerRefreshMessage()));
@@ -30,6 +34,6 @@ public sealed partial class CriticalImplantTrackerUi : UIFragment
         if (state is not CriticalImplantTrackerUiState trackerState)
             return;
 
-        _fragment?.UpdateState(trackerState.Patients);
+        _fragment?.UpdateState(trackerState.Patients, trackerState.Muted);
     }
 }

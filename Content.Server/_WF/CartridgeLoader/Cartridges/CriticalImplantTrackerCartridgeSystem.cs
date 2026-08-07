@@ -42,9 +42,14 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
 
     private void OnUiMessage(EntityUid uid, CriticalImplantTrackerCartridgeComponent component, CartridgeMessageEvent args)
     {
-        if (args is CriticalImplantTrackerRefreshMessage)
+        switch(args)
         {
-            UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+            case CriticalImplantTrackerRefreshMessage: // Aurora's Song - Start
+                UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+                break;
+            case CriticalImplantTrackerMuteMessage:
+                component.Muted = !component.Muted;
+                break; // Aurora's Song - End
         }
     }
 
@@ -157,7 +162,7 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
             patients.Add(new CriticalPatientData(name, coordinates, species, timeSinceCrit, isDead, isSpaceSleepDisorder));
         }
 
-        var state = new CriticalImplantTrackerUiState(patients);
+        var state = new CriticalImplantTrackerUiState(patients, component.Muted);
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
     // Aurora's Song - Start
@@ -166,7 +171,7 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
         var query = EntityQueryEnumerator<CriticalImplantTrackerCartridgeComponent>();
         while (query.MoveNext(out var queryUid, out var comp))
         {
-            if (TryComp<CartridgeComponent>(queryUid, out var cartridge) && cartridge.LoaderUid is { } loader)
+            if (comp.Muted == false && TryComp<CartridgeComponent>(queryUid, out var cartridge) && cartridge.LoaderUid is { } loader)
                 _ringerSystem.RingerPlayRingtone(loader);
         }
     }
