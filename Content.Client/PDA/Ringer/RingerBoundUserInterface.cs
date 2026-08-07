@@ -103,7 +103,7 @@ namespace Content.Client.PDA.Ringer
         // Aurora's Song - Start
         private void OnRingerVolumeDownButtonPressed()
         {
-            if (_menu is null || !EntMan.TryGetComponent(Owner, out RingerComponent? ringer) || ringer.Volume <= -9)
+            if (_menu is null || !EntMan.TryGetComponent(Owner, out RingerComponent? ringer) || ringer.Volume <= -8)
                 return;
             SendPredictedMessage(new RingerSetVolumeMessage(-1f));
             _menu.UpdateVolume(ringer.Volume);
