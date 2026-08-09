@@ -12,7 +12,7 @@
                     <Label Text="Critical Patients with Implants" Align="Center" HorizontalExpand="True" StyleClasses="LabelBig"/>
                     <Button Name="RefreshButton" Text="Refresh" MinWidth="80"/>
                     <Label Text="Mute" Align="Center" StyleClasses="LabelBig"/> <!-- Aurora's Song - Start -->
-                    <Button Name="ToggleMuteButton" Pressed="False" ToggleMode="True" /> <!-- Aurora's Song - End -->
+                    <controls:SwitchButton Name="ToggleMuteButton" HorizontalAlignment="Left" Pressed="True" /> <!-- Aurora's Song - End -->
                 </BoxContainer>
             </PanelContainer>
         </controls:StripeBack>

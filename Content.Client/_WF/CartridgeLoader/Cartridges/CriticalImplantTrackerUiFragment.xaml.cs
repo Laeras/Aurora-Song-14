@@ -1,3 +1,4 @@
+using Content.Client.UserInterface.Controls; // Aurora's Song
 using Content.Shared._WF.CartridgeLoader.Cartridges;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
@@ -10,7 +11,7 @@ public sealed partial class CriticalImplantTrackerUiFragment : BoxContainer
     public event Action? OnMutePressed; // Aurora's Song
 
     private readonly Button _refreshButton;
-    private readonly Button _muteButton; // Aurora's Song
+    private readonly SwitchButton _muteButton; // Aurora's Song
     private readonly BoxContainer _patientList;
 
     public CriticalImplantTrackerUiFragment()
@@ -23,7 +24,7 @@ public sealed partial class CriticalImplantTrackerUiFragment : BoxContainer
 
         _refreshButton = FindControl<Button>("RefreshButton")!;
         _patientList = FindControl<BoxContainer>("PatientList")!;
-        _muteButton = FindControl<Button>("ToggleMuteButton")!; // Aurora's Song
+        _muteButton = FindControl<SwitchButton>("ToggleMuteButton")!; // Aurora's Song
 
         _refreshButton.OnPressed += _ => OnRefreshPressed?.Invoke();
         _muteButton.OnToggled += _ => OnMutePressed?.Invoke(); // Aurora's Song

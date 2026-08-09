@@ -197,9 +197,7 @@ public abstract partial class SharedRingerSystem : EntitySystem
     {
         if (args.Handled)
             return;
-        float newVolume = ent.Comp.Volume + args.RingerVolume;
-        if(newVolume <= 1f && newVolume >= -8f)
-            ent.Comp.Volume += args.RingerVolume;
+        ent.Comp.Volume = args.RingerVolume;
         args.Handled = true;
     }
     // Aurora's Song - End
