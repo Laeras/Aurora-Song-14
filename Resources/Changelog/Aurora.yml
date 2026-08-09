@@ -2791,3 +2791,128 @@ Entries:
   id: 9700
   time: '2026-08-03T08:18:55.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1362
+- author: Sunburstschitin
+  changes:
+    - type: Tweak
+      message: Increases in diona marking limits.
+  id: 9701
+  time: '2026-08-04T03:18:43.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1363
+- author: Sere
+  changes:
+    - type: Fix
+      message: Missing portable gaslock localization.
+  id: 9702
+  time: '2026-08-04T03:26:05.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1364
+- author: ThatOneMoon
+  changes:
+    - type: Tweak
+      message: >-
+        Treasure Chests can hold more kinds of treasure items and construction
+        bags/boxes can now also store flatpacks and machine boards
+  id: 9703
+  time: '2026-08-06T14:44:03.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1355
+- author: Sere
+  changes:
+    - type: Add
+      message: Added legs slot.
+    - type: Add
+      message: Added smart-equip keybinding for legs and shoes slots.
+    - type: Tweak
+      message: >-
+        Moved drop leg holsters and sheathes to legs slot, allowed most pouches
+        (such as contractor's) to fit in legs slot.
+    - type: Tweak
+      message: >-
+        Rearranged inventory and strip UI a bit. Wallet is now left of the PDA,
+        and legs are where Wallet used to be.
+    - type: Tweak
+      message: >-
+        Moved IPC gloves slot in strip menu to the same location as every other
+        species.
+    - type: Fix
+      message: >-
+        Arachnid strip UI now shows all slots, rather than having a web pocket
+        covering the wallet.
+  id: 9704
+  time: '2026-08-06T23:22:39.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1373
+- author: Laeras
+  changes:
+    - type: Tweak
+      message: weapons set to "disable" can now be used by pacifists!
+    - type: Tweak
+      message: >-
+        Refactored energy firemodes, please speak up if a message pops up wrong
+        or I missed something with the visuals somewhere!
+  id: 9705
+  time: '2026-08-07T00:15:09.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1352
+- author: Sere
+  changes:
+    - type: Tweak
+      message: >-
+        Allow silicons to be targets/users of the Knock interaction. Knock that
+        robot.
+  id: 9706
+  time: '2026-08-07T00:15:58.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1376
+- author: salpphie
+  changes:
+    - type: Tweak
+      message: Changed mochi to be 1x1 instead of 1x2.
+  id: 9707
+  time: '2026-08-07T00:38:19.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1374
+- author: Vandanna
+  changes:
+    - type: Fix
+      message: Off-Duty can uncryo
+  id: 9708
+  time: '2026-08-08T00:51:20.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1378
+- author: Sunburst and Sere
+  changes:
+    - type: Add
+      message: Unique legs slot sprites for every UI theme. All sprites by Sunburst.
+  id: 9709
+  time: '2026-08-08T00:54:34.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1377
+- author: astral_amy
+  changes:
+    - type: Add
+      message: Some new remnants of the Clockwork Cult might show up in their ruins.
+    - type: Tweak
+      message: Resprited the clockwork shield.
+  id: 9710
+  time: '2026-08-08T04:31:21.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1369
+- author: Vandanna
+  changes:
+    - type: Add
+      message: Triage Medical channel
+    - type: Tweak
+      message: Med comm range lowered to match shortband
+    - type: Add
+      message: Triage Medical and Prison Implant/ Implanters
+    - type: Tweak
+      message: Medical Implanter is removable
+  id: 9711
+  time: '2026-08-08T08:04:55.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1383
+- author: ZigTag
+  changes:
+    - type: Tweak
+      message: Now only medics can speak on Medical
+  id: 9712
+  time: '2026-08-08T09:50:29.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1384
+- author: ZigTag
+  changes:
+    - type: Add
+      message: Consent toggle for Hauntings (defaults on)
+  id: 9713
+  time: '2026-08-08T22:26:54.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1386
