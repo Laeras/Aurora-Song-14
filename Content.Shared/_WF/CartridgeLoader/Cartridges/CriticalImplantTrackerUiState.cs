@@ -9,7 +9,7 @@ public sealed class CriticalImplantTrackerUiState : BoundUserInterfaceState
     public List<CriticalPatientData> Patients { get; }
     public bool Muted { get; } // Aurora's Song
 
-    public CriticalImplantTrackerUiState(List<CriticalPatientData> patients, bool muted)
+    public CriticalImplantTrackerUiState(List<CriticalPatientData> patients, bool muted) // Aurora's Song - Add muted
     {
         Patients = patients;
         Muted = muted; // Aurora's Song
@@ -41,7 +41,9 @@ public sealed class CriticalPatientData
 public sealed class CriticalImplantTrackerRefreshMessage : CartridgeMessageEvent
 {
 }
-[Serializable, NetSerializable] // Aurora's Song - Start
+// Aurora's Song Start
+[Serializable, NetSerializable]
 public sealed class CriticalImplantTrackerMuteMessage : CartridgeMessageEvent
 {
-} // Aurora's Song - End
+}
+// Aurora's Song End

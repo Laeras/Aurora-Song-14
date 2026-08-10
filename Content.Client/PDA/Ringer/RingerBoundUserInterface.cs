@@ -53,6 +53,7 @@ namespace Content.Client.PDA.Ringer
 
             if (!EntMan.TryGetComponent(Owner, out RingerComponent? ringer))
                 return;
+
             for (var i = 0; i < _menu.RingerNoteInputs.Length; i++)
             {
                 var note = ringer.Ringtone[i].ToString();

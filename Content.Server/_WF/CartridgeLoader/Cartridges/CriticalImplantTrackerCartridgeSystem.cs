@@ -42,15 +42,17 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
 
     private void OnUiMessage(EntityUid uid, CriticalImplantTrackerCartridgeComponent component, CartridgeMessageEvent args)
     {
+        // Aurora's Song Start
         switch(args)
         {
-            case CriticalImplantTrackerRefreshMessage: // Aurora's Song - Start
+            case CriticalImplantTrackerRefreshMessage:
                 UpdateUiState(uid, GetEntity(args.LoaderUid), component);
                 break;
             case CriticalImplantTrackerMuteMessage:
                 component.Muted = !component.Muted;
-                break; // Aurora's Song - End
+                break;
         }
+        // Aurora's Song End
     }
 
     private void OnUiReady(EntityUid uid, CriticalImplantTrackerCartridgeComponent component, CartridgeUiReadyEvent args)
@@ -162,7 +164,7 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
             patients.Add(new CriticalPatientData(name, coordinates, species, timeSinceCrit, isDead, isSpaceSleepDisorder));
         }
 
-        var state = new CriticalImplantTrackerUiState(patients, component.Muted);
+        var state = new CriticalImplantTrackerUiState(patients, component.Muted); // Aurora's Song
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
     // Aurora's Song - Start

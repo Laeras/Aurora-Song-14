@@ -28,7 +28,9 @@ namespace Content.Client.PDA.Ringer
             SetRingerButton.OnPressed += _ => SetRingtoneButtonPressed?.Invoke();
             TestRingerButton.OnPressed += _ => TestRingtoneButtonPressed?.Invoke();
             VolumeSlider.OnValueChanged += OnVolumeSliderChanged; // Aurora's Song End -
+
             RingerNoteInputs = new[] { RingerNoteOneInput, RingerNoteTwoInput, RingerNoteThreeInput, RingerNoteFourInput, RingerNoteFiveInput, RingerNoteSixInput };
+
             for (var i = 0; i < RingerNoteInputs.Length; ++i)
             {
                 var input = RingerNoteInputs[i];

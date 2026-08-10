@@ -1,5 +1,5 @@
 ﻿using Content.Server._WF.CartridgeLoader.Cartridges; // Aurora's Song
-using Content.Server.Radio.EntitySystems; // Aurora's Song
+using Content.Server.Radio.EntitySystems;
 using Content.Shared.Implants; // Aurora's Song: Retriggers
 using Content.Shared._AS.Traits;
 using Content.Shared.Humanoid;
@@ -97,6 +97,7 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
                 target);
         }
         // End Coyote
+
         _critCatridgeSystem.OnDeathrattle(); // Aurora's Song - Ping PDAs
         ent.Comp.NextTrigger = _timing.CurTime + ent.Comp.RetriggerDelay; // Aurora's Song: Implant retriggering
         args.Handled = true;
