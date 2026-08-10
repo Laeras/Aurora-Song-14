@@ -31,6 +31,7 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
     [Dependency] private IGameTiming _gameTiming = default!;
     [Dependency] private SharedMindSystem _mindSystem = default!;
     [Dependency] private SharedContainerSystem _containerSystem = default!;
+    [Dependency] private SharedRingerSystem _ringerSystem = default!; // Aurora's Song
 
     public override void Initialize()
     {
@@ -41,10 +42,17 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
 
     private void OnUiMessage(EntityUid uid, CriticalImplantTrackerCartridgeComponent component, CartridgeMessageEvent args)
     {
-        if (args is CriticalImplantTrackerRefreshMessage)
+        // Aurora's Song Start
+        switch(args)
         {
-            UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+            case CriticalImplantTrackerRefreshMessage:
+                UpdateUiState(uid, GetEntity(args.LoaderUid), component);
+                break;
+            case CriticalImplantTrackerMuteMessage:
+                component.Muted = !component.Muted;
+                break;
         }
+        // Aurora's Song End
     }
 
     private void OnUiReady(EntityUid uid, CriticalImplantTrackerCartridgeComponent component, CartridgeUiReadyEvent args)
@@ -156,7 +164,18 @@ public sealed partial class CriticalImplantTrackerCartridgeSystem : EntitySystem
             patients.Add(new CriticalPatientData(name, coordinates, species, timeSinceCrit, isDead, isSpaceSleepDisorder));
         }
 
-        var state = new CriticalImplantTrackerUiState(patients);
+        var state = new CriticalImplantTrackerUiState(patients, component.Muted); // Aurora's Song
         _cartridgeLoader.UpdateCartridgeUiState(loaderUid, state);
     }
+    // Aurora's Song - Start
+    public void OnDeathrattle()
+    {
+        var query = EntityQueryEnumerator<CriticalImplantTrackerCartridgeComponent>();
+        while (query.MoveNext(out var queryUid, out var comp))
+        {
+            if (comp.Muted == false && TryComp<CartridgeComponent>(queryUid, out var cartridge) && cartridge.LoaderUid is { } loader)
+                _ringerSystem.RingerPlayRingtone(loader);
+        }
+    }
+    // Aurora's Song - End
 }

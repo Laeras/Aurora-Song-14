@@ -1,3 +1,4 @@
+using Content.Client.UserInterface.Controls; // Aurora's Song
 using Content.Shared._WF.CartridgeLoader.Cartridges;
 using Robust.Client.UserInterface.Controls;
 using Robust.Client.UserInterface.XAML;
@@ -7,8 +8,10 @@ namespace Content.Client._WF.CartridgeLoader.Cartridges;
 public sealed partial class CriticalImplantTrackerUiFragment : BoxContainer
 {
     public event Action? OnRefreshPressed;
+    public event Action? OnMutePressed; // Aurora's Song
 
     private readonly Button _refreshButton;
+    private readonly SwitchButton _muteButton; // Aurora's Song
     private readonly BoxContainer _patientList;
 
     public CriticalImplantTrackerUiFragment()
@@ -21,15 +24,18 @@ public sealed partial class CriticalImplantTrackerUiFragment : BoxContainer
 
         _refreshButton = FindControl<Button>("RefreshButton")!;
         _patientList = FindControl<BoxContainer>("PatientList")!;
+        _muteButton = FindControl<SwitchButton>("ToggleMuteButton")!; // Aurora's Song
 
         _refreshButton.OnPressed += _ => OnRefreshPressed?.Invoke();
+        _muteButton.OnToggled += _ => OnMutePressed?.Invoke(); // Aurora's Song
     }
 
-    public void UpdateState(List<CriticalPatientData> patients)
+    public void UpdateState(List<CriticalPatientData> patients, bool muted) // Aurora's Song
     {
         _patientList.DisposeAllChildren();
         _patientList.RemoveAllChildren();
 
+        _muteButton.Pressed = muted; // Aurora's Song
         if (patients.Count == 0)
         {
             var noDataLabel = new Label

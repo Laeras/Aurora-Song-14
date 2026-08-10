@@ -148,7 +148,7 @@
   - type: Speech
     speechVerb: Arachnid
     speechSounds: Arachnid
-    allowedEmotes: ['Click', 'Chitter']
+    allowedEmotes: ['Click', 'Chitter', 'Hiss'] # Aurora's Song - Add hiss.
   - type: Vocal
     sounds:
       Male: UnisexArachnid

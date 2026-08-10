@@ -21,6 +21,7 @@
 #      range: 500
     - type: TriggerOnMobstateChange
       mobState:
+      - Alive # Aurora's Song
       - Critical
       - Dead
       - Alive # Aurora's Song

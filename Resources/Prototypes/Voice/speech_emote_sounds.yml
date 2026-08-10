@@ -266,23 +266,31 @@
     Click:
       path: /Audio/Voice/Vox/vox_click.ogg
     Chitter:
-      path: /Audio/Voice/Vox/vox_chitter.ogg
+      collection: VoxChitter # Aurora's Song
     MonkeyScreeches: # Frontier
       collection: MonkeyScreeches # Frontier
     Honk:
       collection: BikeHorn
     Crying:
-      path: /Audio/Voice/Vox/vox_cry.ogg
+      path: /Audio/_MACRO/Voice/Vox/voxcry.ogg # Aurora's Song
     Weh:
       collection: Weh
     Hew:
       collection: Hew
     Gasp:
-      path: /Audio/Effects/Gasp/vox_gasp.ogg
+      collection: VoxGasp # Aurora's Song
     DefaultDeathgasp:
       path: /Audio/Effects/Gasp/vox_DeathGasp.ogg
     Belch: # Frontier
       collection: Belch # Frontier
+    # Aurora's Song Start
+    Coo:
+      collection: VoxCoo
+    Hiss:
+      path: /Audio/_MACRO/Voice/Vox/voxhiss.ogg
+    Whistle:
+      collection: Whistles
+    #  Aurora's Song End
   params:
     variation: 0.125
     # TODO: We need vox sounds for the other emotes
@@ -339,11 +347,27 @@
     Honk:
       collection: BikeHorn
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_gasp.ogg # Aurora's Song
     DefaultDeathgasp:
       collection: DeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    # Macrocosm start
+    Hiss:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_hiss.ogg
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_cough.ogg
+    Yawn:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_yawn.ogg
+    Sigh:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_sigh.ogg
+    Crying:
+      path: /Audio/_MACRO/Voice/Arachnid/arachnid_cry.ogg
+    Whistle:
+      collection: Whistles
+    # Macrocosm end
 
 - type: emoteSounds
   id: UnisexDwarf
@@ -459,11 +483,25 @@
     Honk:
       collection: BikeHorn
     Gasp:
-      collection: MaleGasp
+      path: /Audio/_MACRO/Voice/Moth/mothgasp.ogg # Aurora's Song
     DefaultDeathgasp:
       collection: MothDeathGasp
     Belch: # Frontier
       collection: Belch # Frontier
+    # Macrocosm start
+    Sneeze:
+      collection: UnisexSneezes #placeholder
+    Cough:
+      path: /Audio/_MACRO/Voice/Moth/mothcough.ogg
+    Yawn:
+      path: /Audio/_MACRO/Voice/Moth/mothyawn.ogg
+    Sigh:
+      path: /Audio/_MACRO/Voice/Moth/mothsigh.ogg
+    Crying:
+      path: /Audio/_MACRO/Voice/Moth/mothcry.ogg
+    Whistle:
+      collection: Whistles
+    # Macrocosm end
 
 - type: emoteSounds
   id: UnisexSilicon

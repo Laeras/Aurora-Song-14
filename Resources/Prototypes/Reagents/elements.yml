@@ -88,7 +88,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Decapoid ] #Macrocosm, Decapoid
+          type: [ Arachnid, Decapoid ] #Macrocosm, added Decapoid
           inverted: true
         damage:
           types:
@@ -176,7 +176,7 @@
       - !type:HealthChange
         conditions:
         - !type:MetabolizerTypeCondition
-          type: [ Arachnid, Decapoid ] #Macrocosm, Decapoid
+          type: [ Arachnid, Decapoid ] #Macrocosm, added Decapoid
         damage:
           types:
             Poison: 0.1

@@ -2916,3 +2916,63 @@ Entries:
   id: 9713
   time: '2026-08-08T22:26:54.0000000+00:00'
   url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1386
+- author: avosirenfal
+  changes:
+    - type: Fix
+      message: predicted system ticks were not reliably using random values
+  id: 9714
+  time: '2026-08-09T18:33:38.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1389
+- author: ZigTag
+  changes:
+    - type: Add
+      message: armblade trait
+  id: 9715
+  time: '2026-08-10T05:34:00.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1387
+- author: Sere
+  changes:
+    - type: Fix
+      message: Fixed legs slot visual layering.
+  id: 9716
+  time: '2026-08-10T05:50:44.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1393
+- author: resetium
+  changes:
+    - type: Add
+      message: >-
+        3 new traits to control how strongly alcohol affects your character.
+        Drink responsibly!
+  id: 9717
+  time: '2026-08-10T06:41:20.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1371
+- author: ZigTag
+  changes:
+    - type: Add
+      message: deathrattle implants now notify on revival
+  id: 9718
+  time: '2026-08-10T07:32:05.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1395
+- author: Laeras
+  changes:
+    - type: Add
+      message: >-
+        Medics rejoice! the Crit tracker cartridge is now purchasable in the
+        Medic Gear vend in PB, spawns by default in the medic PDA, and plays
+        your ringtone whenever the crew blows themselves up again!
+    - type: Add
+      message: The crit tracker cartridge has a mute button now!
+    - type: Add
+      message: The PDA has a volume setting now!
+  id: 9719
+  time: '2026-08-10T09:19:28.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1368
+- author: salamanderskies
+  changes:
+    - type: Add
+      message: Added new emote sounds for Moths, Arachnids, and Vox, from Impstation!
+    - type: Tweak
+      message: Allulalo hissing sounds adjusted slightly.
+  id: 9720
+  time: '2026-08-10T09:23:09.0000000+00:00'
+  url: https://github.com/AuroraSong14/Aurora-Song-14/pull/1390

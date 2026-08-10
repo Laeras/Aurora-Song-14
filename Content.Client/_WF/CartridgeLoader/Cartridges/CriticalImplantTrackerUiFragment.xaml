@@ -9,6 +9,15 @@
         <controls:StripeBack>
             <PanelContainer>
                 <BoxContainer Orientation="Horizontal" HorizontalExpand="True">
+                    <!-- Aurora's Song Start - Mute crit tracker sound -->
+                    <controls:SwitchButton
+                        Name="ToggleMuteButton"
+                        HorizontalAlignment="Right"
+                        Margin="5 0 0 0"
+                        Pressed="True"
+                        OffStateText="{Loc mute-switch-off-state-label}"
+                        OnStateText="{Loc mute-switch-on-state-label}" />
+                    <!-- Aurora's Song End -->
                     <Label Text="Critical Patients with Implants" Align="Center" HorizontalExpand="True" StyleClasses="LabelBig"/>
                     <Button Name="RefreshButton" Text="Refresh" MinWidth="80"/>
                 </BoxContainer>

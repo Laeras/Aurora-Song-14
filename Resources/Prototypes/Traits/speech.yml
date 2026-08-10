@@ -17,6 +17,7 @@
     - type: MothAccent
     - type: ReplacementAccent
       accent: scottish
+    - type: AllulaloAccent # Aurora's Song
 
 # 1 Cost
 

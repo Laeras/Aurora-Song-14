@@ -40,6 +40,7 @@
     - map: [ "belt" ]
     - map: [ "id" ]
     - map: [ "outerClothing" ]
+    - map: [ "legs" ] # Aurora's Song - Legs Slot
     - map: [ "back" ]
     - map: [ "neck" ]
     - map: [ "suitstorage" ]

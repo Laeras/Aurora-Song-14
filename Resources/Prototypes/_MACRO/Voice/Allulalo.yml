@@ -17,15 +17,13 @@
     Laugh:
       path: /Audio/_MACRO/Voice/Allulalo/allulalo_laugh.ogg
     Hiss:
-      collection: ReptilianHiss # Aurora's Song
-    # Aurora's Song - We don't have this at the moment.
-    #  path: /Audio/_MACRO/Voice/Vox/voxhiss.ogg
-    #  params:
-    #   volume: -5
+      path: /Audio/_MACRO/Voice/Vox/voxhiss.ogg
+      params:
+        volume: -5
     Chitter:
       path: /Audio/_MACRO/Voice/Allulalo/allulalo_chitter.ogg
     Sneeze:
-      collection: MaleSneezes #placeholder - Aurora's Song UnisexSneezes > MaleSneezes
+      collection: UnisexSneezes
     Cough:
       path: /Audio/Voice/Vox/vox_cough.ogg #placeholder
     Yawn:

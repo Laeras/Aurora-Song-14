@@ -19,7 +19,7 @@
       limit: 1
       required: false
     enum.HumanoidVisualLayers.UndergarmentTop:
-      limit: 1
+      limit: 0 # Aurora's Song - 1 > 0
       required: false
     enum.HumanoidVisualLayers.Chest:
       limit: 2
