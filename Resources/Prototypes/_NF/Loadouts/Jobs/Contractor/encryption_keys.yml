@@ -15,7 +15,7 @@
   price: 0
   encryptionKeys:
   - EncryptionKeyShipboard
-  -
+
 # Aurora's Song Start -
 - type: loadout #  Emergency encryption key added
   id: ContractorEncryptionKeyEmergency
