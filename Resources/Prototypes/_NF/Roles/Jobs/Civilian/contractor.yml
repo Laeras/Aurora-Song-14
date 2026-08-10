@@ -19,6 +19,7 @@
   encryptionKeys: # Aurora's Song - Added traffic and shipboard encryption keys
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
+  - EncryptionKeyEmergency # Aurora's Song
 
 # Interview variant
 - type: job

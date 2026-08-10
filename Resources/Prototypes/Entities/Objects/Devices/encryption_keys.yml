@@ -91,6 +91,7 @@
     - Greeting # Frontier
     - Shipboard # Aurora's Song - Shipboard channel, incredibly short range
     - Triage # Aurora's Song - Triage channel, for official medical staff
+    - Emergency # Aurora's Song - Emergency channel, readonly channel for emergencies
     defaultChannel: Command
   - type: Sprite
     layers:

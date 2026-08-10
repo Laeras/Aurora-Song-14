@@ -49,6 +49,7 @@
   - EncryptionKeyShipboard
   - EncryptionKeyTriage
   - EncryptionKeyMedical
+  - EncryptionKeyEmergency
 
 - type: chameleonOutfit
   id: CorpsmanChameleonOutfit

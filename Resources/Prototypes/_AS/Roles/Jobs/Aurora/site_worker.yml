@@ -42,6 +42,7 @@
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
   - EncryptionKeyScience
+  - EncryptionKeyEmergency
 
 - type: chameleonOutfit
   id: SiteWorkerChameleonOutfit

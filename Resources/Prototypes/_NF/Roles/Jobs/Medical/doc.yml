@@ -47,6 +47,7 @@
   encryptionKeys: # Aurora's Song - Added traffic and shipboard encryption keys
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
+  - EncryptionKeyEmergency # Aurora's Song
 
 - type: chameleonOutfit
   id: DirectorOfCareChameleonOutfit

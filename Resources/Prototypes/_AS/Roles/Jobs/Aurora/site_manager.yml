@@ -45,6 +45,7 @@
   - EncryptionKeySiteManager
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
+  - EncryptionKeyEmergency
 
 - type: chameleonOutfit
   id: SiteManagerChameleonOutfit

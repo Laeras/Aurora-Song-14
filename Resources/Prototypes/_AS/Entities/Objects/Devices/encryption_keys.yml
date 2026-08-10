@@ -120,3 +120,23 @@
   components:
   - type: EncryptionKey
     readOnlyChannels: [] # remove readonly
+
+- type: entity
+  parent: EncryptionKey
+  id: EncryptionKeyEmergency
+  name: emergency encryption key
+  description: An encryption key for the Emergency channel.
+  components:
+  - type: EncryptionKey
+    channels:
+    - Emergency
+    readOnlyChannels: # Aurora's Song
+    - Emergency
+    defaultChannel: Emergency
+  - type: Item
+    sprite: _AS/Objects/Devices/encryption_keys.rsi
+  - type: Sprite
+    sprite: _AS/Objects/Devices/encryption_keys.rsi
+    layers:
+    - state: crypt_silver
+    - state: as_label

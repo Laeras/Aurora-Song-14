@@ -47,6 +47,7 @@
   - EncryptionKeyShipboard
   - EncryptionKeyService
   - EncryptionKeySecurity
+  - EncryptionKeyEmergency # Aurora's Song
 
 - type: chameleonOutfit
   id: SecurityGuardChameleonOutfit

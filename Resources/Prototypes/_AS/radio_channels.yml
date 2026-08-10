@@ -27,3 +27,10 @@
   keycode: 'k'
   frequency: 1125
   color: "#c7e7ae"
+
+- type: radioChannel
+  id: Emergency
+  name: chat-radio-emergency
+  keycode: 'p'
+  frequency: 3333
+  color: "#C0085E"

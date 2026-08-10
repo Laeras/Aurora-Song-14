@@ -9,6 +9,7 @@ using Content.Shared.Radio;
 using Content.Shared.Station;
 using Content.Shared.Trigger;
 using Content.Shared.Trigger.Components.Effects;
+using Robust.Shared.Configuration; // Aurora's Song
 using Robust.Shared.Prototypes;
 using Robust.Shared.Timing; // Aurora's Song: Death Times
 
@@ -20,7 +21,14 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
     [Dependency] private RadioSystem _radioSystem = default!;
     [Dependency] private IPrototypeManager _prototypeManager = default!;
     [Dependency] private IGameTiming _timing = default!; // Aurora's Song: Death Times & Retriggering
+    [Dependency] private IConfigurationManager _config = default!; // Aurora's Song - Needed for CVars
 
+    private TimeSpan _emergencyTime = new (0, 1, 0);
+    public override void Initialize()
+    {
+        base.Initialize();
+        Subs.CVar(_config, AuroraCVars.DeathTimerEmergencyMessage, value => _emergencyTime = new (0,value,0), true);
+    }
     // Have old functionality of rattle available for NF and Coyote functionality
     protected override void OnTrigger(Entity<RattleOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -31,10 +39,30 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
             return;
 
         // Coyote
-        if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate)
-            || mobstate.CurrentState == MobState.Alive)
+        if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
             return;
+        // Aurora's Song Start -
+        if (TryComp<ImplantedComponent>(implanted.ImplantedEntity, out var implantedComponent)) // Aurora's Song - Can handle *exactly* two implants with deathrattles with exactly the same,
+        {
+            foreach( EntityUid implant in implantedComponent.ImplantContainer.ContainedEntities) // I am sorry
+                if(TryComp<RattleOnTriggerComponent>(implant, out var rattle)) // I wrote this entire section in a fugue state
+                    if (rattle != ent.Comp)
+                    {
+                        int channelEqualsCount = 0;
+                        foreach (ProtoId<RadioChannelPrototype> channel in rattle.RadioChannel) // It seems to work perfectly fine though
+                            foreach(ProtoId<RadioChannelPrototype> myChannel in ent.Comp.RadioChannel)
+                                if (myChannel == channel)
+                                    channelEqualsCount++;
+                        if (channelEqualsCount == ent.Comp.RadioChannel.Count && !ent.Comp.OtherImplantDisabled)
+                        {
+                            rattle.OtherImplantDisabled = true;
+                            return;
+                        }
+                    }
 
+        }
+        ent.Comp.OtherImplantDisabled = false;
+        // Aurora's Song End -
 
         // Gets location of the implant
         var ownerXform = Transform(target);
@@ -66,12 +94,13 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
         }
         // Begin Aurora's Song: Death Times
         var deathTime = "";
+        TimeSpan deltaTime = new TimeSpan();
         if(mobstate.CurrentState == MobState.Dead)
         {
             if(ent.Comp.DeathTime == TimeSpan.Zero)
                 ent.Comp.DeathTime = _timing.CurTime;
 
-            TimeSpan deltaTime = _timing.CurTime - ent.Comp.DeathTime;
+             deltaTime = _timing.CurTime - ent.Comp.DeathTime;
             deathTime = deltaTime.ToString("mm\\:ss");
         } // End Aurora's Song
 
@@ -85,15 +114,20 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
             ("grid", stationText!),
             ("position", posText),
             ("deathtime", deathTime)); // Aurora's Song: Death Times
-
-        foreach (var channel in ent.Comp.RadioChannel)
-        {
+        if (deltaTime > _emergencyTime)
+            _radioSystem.SendRadioMessage(target,
+                message,
+                _prototypeManager.Index<RadioChannelPrototype>("Emergency"),
+                target);
+        else
+            foreach (var channel in ent.Comp.RadioChannel)
+            {
             _radioSystem.SendRadioMessage(
                 target,
                 message,
                 _prototypeManager.Index<RadioChannelPrototype>(channel),
                 target);
-        }
+            }
         // End Coyote
 
         ent.Comp.NextTrigger = _timing.CurTime + ent.Comp.RetriggerDelay; // Aurora's Song: Implant retriggering

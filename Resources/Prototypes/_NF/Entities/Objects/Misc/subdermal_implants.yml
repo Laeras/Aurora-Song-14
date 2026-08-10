@@ -23,6 +23,7 @@
       mobState:
       - Critical
       - Dead
+      - Alive # Aurora's Song
     - type: RattleOnTrigger
       radioChannel: # Aurora's Song - Changed to a list
       - Medical
@@ -48,6 +49,7 @@
 #      range: 500
     - type: TriggerOnMobstateChange
       mobState:
+      - Alive
       - Critical
       - Dead
     - type: RattleOnTrigger

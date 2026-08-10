@@ -47,6 +47,7 @@
   - EncryptionKeyGreeting
   - EncryptionKeyService
   - EncryptionKeyCommand
+  - EncryptionKeyEmergency # Aurora's Song
 
 - type: chameleonOutfit
   id: StationTrafficControllerChameleonOutfit

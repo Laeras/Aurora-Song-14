@@ -14,6 +14,7 @@
     EncryptionKeyCommon: 3
     EncryptionKeyTraffic: 3
     EncryptionKeyShipboard: 3 # Aurora's Song - Added Shipboard key to vending machine
+    EncryptionKeyEmergency: 3 # Aurora's Song - Also adding Emergency Key
     EncryptionKeyMedical: 3
     EncryptionKeyCargo: 3
     EncryptionKeyEngineering: 3
@@ -52,6 +53,7 @@
     EncryptionKeyCommon: 4294967295 # Infinite
     EncryptionKeyTraffic: 4294967295 # Infinite
     EncryptionKeyShipboard: 4294967295 # Aurora's Song - Infinite, Added Shipboard key to vending machine
+    EncryptionKeyEmergency: 4294967295 # Aurora's Song - Infinite, adding emergency key here as well
     EncryptionKeyMedical: 4294967295 # Infinite
     EncryptionKeyCargo: 4294967295 # Infinite
     EncryptionKeyEngineering: 4294967295 # Infinite

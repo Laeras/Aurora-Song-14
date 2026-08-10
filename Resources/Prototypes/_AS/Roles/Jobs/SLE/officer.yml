@@ -43,6 +43,7 @@
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
   - EncryptionKeyTriage
+  - EncryptionKeyEmergency
 
 - type: chameleonOutfit
   id: OfficerChameleonOutfit

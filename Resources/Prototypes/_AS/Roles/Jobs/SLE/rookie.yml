@@ -41,6 +41,7 @@
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
   - EncryptionKeyTriage
+  - EncryptionKeyEmergency
 
 - type: chameleonOutfit
   id: RookieChameleonOutfit

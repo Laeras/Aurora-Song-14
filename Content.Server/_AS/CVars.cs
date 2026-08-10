@@ -6,6 +6,16 @@ namespace Content.Server._AS;
 public sealed class AuroraCVars
 {
     /// <summary>
+    /// How long it takes a deathrattle implant to switch from triage mode to emergency broadcast mode
+    /// </summary>
+    public static readonly CVarDef<int> DeathTimerEmergencyMessage =
+        CVarDef.Create(
+            "death_timer_emergency_message.time",
+            (10),
+            CVar.SERVERONLY,
+            "How long a deathrattle implant takes to start broadcasting on emergency channels, in minutes"
+        );
+    /// <summary>
     /// How often station staff wages are paid.
     /// </summary>
     public static readonly CVarDef<int> StationPayDelay =

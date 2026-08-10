@@ -1075,7 +1075,7 @@
   id: ContractorEncryptionKey
   name: loadout-group-contractor-encryption-key
   minLimit: 0
-  maxLimit: 6 # Aurora's Song - Increased to 6 to match total possible keys
+  maxLimit: 7 # Aurora's Song - Increased to 7 to match total possible keys
   loadouts:
   - ContractorEncryptionKeyTraffic
   - ContractorEncryptionKeyShipboard # Aurora's Song - Shipboard encryption key added
@@ -1083,6 +1083,7 @@
   - ContractorEncryptionKeyCargo
   - ContractorEncryptionKeyEngineering
   - ContractorEncryptionKeyScience
+  - ContractorEncryptionKeyEmergency # Aurora's Song
   fallbacks:
   - ContractorEncryptionKeyTraffic
 

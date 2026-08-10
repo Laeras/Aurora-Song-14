@@ -41,6 +41,7 @@
   - EncryptionKeyTraffic
   - EncryptionKeyShipboard
   - EncryptionKeyService
+  - EncryptionKeyEmergency # Aurora's Song
 
 - type: chameleonOutfit
   id: NFJanitorChameleonOutfit
