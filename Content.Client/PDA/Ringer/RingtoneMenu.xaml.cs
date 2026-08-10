@@ -16,9 +16,10 @@ namespace Content.Client.PDA.Ringer
         public string[] PreviousNoteInputs = new[] { "A", "A", "A", "A", "A", "A" };
         public LineEdit[] RingerNoteInputs;
 
+        public float RingerVolume => VolumeSlider.Value; // Aurora's Song
+
         public event Action? SetRingtoneButtonPressed;
         public event Action? TestRingtoneButtonPressed;
-        public event Action<float>? VolumeSet; // Aurora's Song
 
         public RingtoneMenu()
         {
@@ -26,7 +27,6 @@ namespace Content.Client.PDA.Ringer
 
             SetRingerButton.OnPressed += _ => SetRingtoneButtonPressed?.Invoke();
             TestRingerButton.OnPressed += _ => TestRingtoneButtonPressed?.Invoke();
-            VolumeSlider.OnKeyBindUp += OnVolumeSliderReleased; // Aurora's Song Start -
             VolumeSlider.OnValueChanged += OnVolumeSliderChanged; // Aurora's Song End -
             RingerNoteInputs = new[] { RingerNoteOneInput, RingerNoteTwoInput, RingerNoteThreeInput, RingerNoteFourInput, RingerNoteFiveInput, RingerNoteSixInput };
             for (var i = 0; i < RingerNoteInputs.Length; ++i)
@@ -96,7 +96,7 @@ namespace Content.Client.PDA.Ringer
 
             return Enum.TryParse(input, true, out Note _);
         }
-        // Aurora's Song Start -
+        // Aurora's Song Start
         public void UpdateVolume(float volume)
         {
             VolumeLabel.Text = (volume+9).ToString("0.0"); // makes the volume 9 higher, such that -4dB (default) reads as a "5" on the 1-10 volume scale
@@ -114,12 +114,6 @@ namespace Content.Client.PDA.Ringer
             VolumeSlider.MinValue = min;
             VolumeSlider.MaxValue = max;
         }
-        private void OnVolumeSliderReleased(GUIBoundKeyEventArgs args)
-        {
-            if (args.Function != EngineKeyFunctions.UIClick)
-                return;
-            VolumeSet?.Invoke(VolumeSlider.Value);
-        }
-        // Aurora's Song End -
+        // Aurora's Song End
     }
 }

@@ -20,7 +20,6 @@ namespace Content.Client.PDA.Ringer
 
             _menu.TestRingtoneButtonPressed += OnTestRingtoneButtonPressed;
             _menu.SetRingtoneButtonPressed += OnSetRingtoneButtonPressed;
-            _menu.VolumeSet += OnVolumeSetPressed; // Aurora's Song
 
             Update();
         }
@@ -90,7 +89,7 @@ namespace Content.Client.PDA.Ringer
             if (!TryGetRingtone(out var ringtone))
                 return;
 
-            SendPredictedMessage(new RingerSetRingtoneMessage(ringtone));
+            SendPredictedMessage(new RingerSetRingtoneMessage(ringtone, _menu.RingerVolume)); // Aurora's Song - Add volume
             _menu.SetRingerButton.Disabled = true;
 
             Timer.Spawn(333,
@@ -100,11 +99,5 @@ namespace Content.Client.PDA.Ringer
                         ringer.Disabled = false;
                 });
         }
-        // Aurora's Song - Start
-        private void OnVolumeSetPressed(float volume)
-        {
-            SendPredictedMessage(new RingerSetVolumeMessage(volume));
-        }
-        // Aurora's Song - End
     }
 }

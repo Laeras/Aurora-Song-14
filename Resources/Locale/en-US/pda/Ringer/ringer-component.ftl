@@ -15,5 +15,3 @@ comp-ringer-ui = [color=yellow]♪{$RingtoneOne}-{$RingtoneTwo}-{$RingtoneThree}
 
 # Aurora's Song - Start
 comp-ringer-ui-menu-volume = Volume:
-comp-ringer-ui-menu-volume-up-button = Up
-comp-ringer-ui-menu-volume-down-button = Down

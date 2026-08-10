@@ -39,7 +39,6 @@ public abstract partial class SharedRingerSystem : EntitySystem
         // RingerBoundUserInterface Subscriptions
         SubscribeLocalEvent<RingerComponent, RingerSetRingtoneMessage>(OnSetRingtone);
         SubscribeLocalEvent<RingerComponent, RingerPlayRingtoneMessage>(OnPlayRingtone);
-        SubscribeLocalEvent<RingerComponent, RingerSetVolumeMessage>(OnSetVolume); // Aurora's Song
     }
 
     /// <inheritdoc/>
@@ -174,6 +173,8 @@ public abstract partial class SharedRingerSystem : EntitySystem
         ent.Comp.NextRingtoneSetTime = curTime + ent.Comp.Cooldown;
         DirtyField(ent.AsNullable(), nameof(RingerComponent.NextRingtoneSetTime));
 
+        UpdateRingerVolume(ent, args.Volume); // Aurora's Song
+
         // Client sent us an updated ringtone so set it to that.
         if (args.Ringtone.Length != RingtoneLength)
             return;
@@ -192,15 +193,6 @@ public abstract partial class SharedRingerSystem : EntitySystem
     {
         StartRingtone(ent);
     }
-    // Aurora's Song - Start
-    private void OnSetVolume(Entity<RingerComponent> ent, ref RingerSetVolumeMessage args)
-    {
-        if (args.Handled)
-            return;
-        ent.Comp.Volume = args.RingerVolume;
-        args.Handled = true;
-    }
-    // Aurora's Song - End
 
     // Helper methods
 
@@ -245,6 +237,15 @@ public abstract partial class SharedRingerSystem : EntitySystem
         DirtyField(ent.AsNullable(), nameof(RingerComponent.Ringtone));
         UpdateRingerUi(ent);
     }
+
+    // Aurora's Song Start
+    private void UpdateRingerVolume(Entity<RingerComponent> ent, float volume)
+    {
+        ent.Comp.Volume = volume;
+        DirtyField(ent.AsNullable(), nameof(RingerComponent.Volume));
+        UpdateRingerUi(ent);
+    }
+    // Aurora's Song End
 
     /// <summary>
     /// Base implementation for toggle uplink processing after verification.
