@@ -23,7 +23,8 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
     [Dependency] private IGameTiming _timing = default!; // Aurora's Song: Death Times & Retriggering
     [Dependency] private IConfigurationManager _config = default!; // Aurora's Song - Needed for CVars
 
-    private TimeSpan _emergencyTime = new (0, 1, 0);
+    private TimeSpan _emergencyTime = new (0, 10, 0);
+    private static readonly ProtoId<RadioChannelPrototype> Emergency = "Emergency";
     public override void Initialize()
     {
         base.Initialize();
@@ -117,7 +118,7 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
         if (deltaTime > _emergencyTime)
             _radioSystem.SendRadioMessage(target,
                 message,
-                _prototypeManager.Index<RadioChannelPrototype>("Emergency"),
+                Emergency,
                 target);
         else
             foreach (var channel in ent.Comp.RadioChannel)
