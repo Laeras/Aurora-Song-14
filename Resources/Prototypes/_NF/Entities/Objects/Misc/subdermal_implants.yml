@@ -24,7 +24,6 @@
       - Alive # Aurora's Song
       - Critical
       - Dead
-      - Alive # Aurora's Song
     - type: RattleOnTrigger
       radioChannel: # Aurora's Song - Changed to a list
       - Medical
