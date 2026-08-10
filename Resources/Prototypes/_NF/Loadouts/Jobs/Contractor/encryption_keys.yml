@@ -15,15 +15,17 @@
   price: 0
   encryptionKeys:
   - EncryptionKeyShipboard
-
-- type: loadout # Aurora's Song - Emergency encryption key added
+  -
+# Aurora's Song Start -
+- type: loadout #  Emergency encryption key added
   id: ContractorEncryptionKeyEmergency
   hideEffects:
   - !type:GroupLoadoutEffect
-    proto: ASNotStandard # Aurora's Song - Assume these roles have them by default, so it's hidden
+    proto: ASNotStandard #  Assume these roles have them by default, so it's hidden
   price: 0
   encryptionKeys:
   - EncryptionKeyEmergency
+# Aurora's Song End -
 
 - type: loadout
   id: ContractorEncryptionKeyMedical

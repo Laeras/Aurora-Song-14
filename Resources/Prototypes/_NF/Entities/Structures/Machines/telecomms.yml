@@ -19,7 +19,7 @@
       - EncryptionKeyShipboard # Aurora's Song - Added Shipboard key to shuttle server, so all ships can have short-range comms
       - EncryptionKeyTriage # Aurora's Song - Added Triage key to station telecoms server, for med staff
       - EncryptionKeyGreeting
-      - EncryptionKeyEmergency
+      - EncryptionKeyEmergency # Aurora's Song - Added Emergency key to the station server so everyone gets emergency comms
   - type: EncryptionKeyHolder
     keysExtractionMethod: Prying
     keySlots: 14 # Aurora's Song - Increased to 14 to fit all keys, including new Shipboard, Emergency, and Triage keys

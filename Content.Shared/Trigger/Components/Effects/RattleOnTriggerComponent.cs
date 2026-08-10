@@ -51,5 +51,5 @@ public sealed partial class RattleOnTriggerComponent : BaseXOnTriggerComponent
     public TimeSpan RetriggerDelay = TimeSpan.FromMinutes(5);
 
     [DataField]
-    public bool OtherImplantDisabled = false;
+    public bool OtherImplantDisabled = false; // Aurora's Song
 }
