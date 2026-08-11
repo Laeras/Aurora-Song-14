@@ -44,28 +44,6 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
         // Coyote
         if (!TryComp<MobStateComponent>(implanted.ImplantedEntity, out var mobstate))
             return;
-        // Aurora's Song Start -
-        if (TryComp<ImplantedComponent>(implanted.ImplantedEntity, out var implantedComponent)) // Aurora's Song - Can handle *exactly* two implants with deathrattles with exactly the same,
-        {
-            foreach( EntityUid implant in implantedComponent.ImplantContainer.ContainedEntities) // I am sorry
-                if(TryComp<RattleOnTriggerComponent>(implant, out var rattle)) // I wrote this entire section in a fugue state
-                    if (rattle != ent.Comp)
-                    {
-                        int channelEqualsCount = 0;
-                        foreach (ProtoId<RadioChannelPrototype> channel in rattle.RadioChannel) // It seems to work perfectly fine though
-                            foreach(ProtoId<RadioChannelPrototype> myChannel in ent.Comp.RadioChannel)
-                                if (myChannel == channel)
-                                    channelEqualsCount++;
-                        if (channelEqualsCount == ent.Comp.RadioChannel.Count && !ent.Comp.OtherImplantDisabled)
-                        {
-                            rattle.OtherImplantDisabled = true;
-                            return;
-                        }
-                    }
-
-        }
-        ent.Comp.OtherImplantDisabled = false;
-        // Aurora's Song End -
 
         // Gets location of the implant
         var ownerXform = Transform(target);
@@ -103,7 +81,7 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
             if(ent.Comp.DeathTime == TimeSpan.Zero)
                 ent.Comp.DeathTime = _timing.CurTime;
 
-             deltaTime = _timing.CurTime - ent.Comp.DeathTime;
+            deltaTime = _timing.CurTime - ent.Comp.DeathTime;
             deathTime = deltaTime.ToString("mm\\:ss");
         } // End Aurora's Song
 
