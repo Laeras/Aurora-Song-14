@@ -27,11 +27,14 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
 
     private TimeSpan _emergencyTime = new (0, 10, 0);
     private static readonly ProtoId<RadioChannelPrototype> Emergency = "Emergency";
+
     public override void Initialize()
     {
         base.Initialize();
+
         Subs.CVar(_config, AuroraCVars.DeathTimerEmergencyMessage, value => _emergencyTime = new (0,value,0), true);
     }
+
     // Have old functionality of rattle available for NF and Coyote functionality
     protected override void OnTrigger(Entity<RattleOnTriggerComponent> ent, EntityUid target, ref TriggerEvent args)
     {
@@ -95,20 +98,27 @@ public sealed partial class ASRattleTriggerSystem : XOnTriggerSystem<RattleOnTri
             ("grid", stationText!),
             ("position", posText),
             ("deathtime", deathTime)); // Aurora's Song: Death Times
+
+        // Aurora's Song Start
         if (deltaTime > _emergencyTime)
+        {
             _radioSystem.SendRadioMessage(target,
                 message,
                 Emergency,
                 target);
+        }
         else
+        {
             foreach (var channel in ent.Comp.RadioChannel)
             {
-            _radioSystem.SendRadioMessage(
-                target,
-                message,
-                _prototypeManager.Index<RadioChannelPrototype>(channel),
-                target);
+                _radioSystem.SendRadioMessage(
+                    target,
+                    message,
+                    _prototypeManager.Index<RadioChannelPrototype>(channel),
+                    target);
             }
+        }
+        // Aurora's Song End
         // End Coyote
 
         _critCatridgeSystem.OnDeathrattle(); // Aurora's Song - Ping PDAs
