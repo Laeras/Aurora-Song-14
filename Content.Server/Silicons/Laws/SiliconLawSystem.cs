@@ -1,6 +1,7 @@
 using System.Linq;
 using Content.Server.Administration;
 using Content.Server.Chat.Managers;
+using Content.Server.Ghost.Roles.Components;
 using Content.Server.Station.Systems;
 using Content.Shared._Corvax.Silicons.Borgs.Components; // Corvax-Next-AiRemoteControl
 using Content.Shared.Administration;
@@ -146,7 +147,7 @@ public sealed partial class SiliconLawSystem : SharedSiliconLawSystem
     private void OnIonStormLaws(EntityUid uid, SiliconLawProviderComponent component, ref IonStormLawsEvent args)
     {
         // Emagged borgs are immune to ion storm
-        if (!_emag.CheckFlag(uid, EmagType.Interaction) && HasComp<ActorComponent>(uid)) // Aurora's Song - Make it also check for a mind
+        if ((!_emag.CheckFlag(uid, EmagType.Interaction) && HasComp<ActorComponent>(uid)) || (TryComp<GhostRoleComponent>(uid, out var ghostRole) && !ghostRole.Taken) ) // Aurora's Song - Make it check for a mind, but also allow ion laws to fire on ghostrole cyborgs (derelicts)
         {
             component.Lawset = args.Lawset;
 
